@@ -592,6 +592,37 @@ section.visible {
     text-align: right;
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* Hamburger Active State (X) */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     section {
@@ -621,52 +652,47 @@ section.visible {
     
     header {
         padding: 1rem 5%;
+        height: 80px; /* Fixed height for header */
     }
     
     .logo-container img {
-        height: 80px;
+        height: 60px;
+    }
+
+    .hamburger {
+        display: flex;
     }
     
-    nav ul {
-        gap: 1.5rem;
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 100%;
+        height: calc(100vh - 80px);
+        text-align: center;
+        transition: var(--transition);
+        gap: 2rem !important;
+        padding: 4rem 0;
+        z-index: 999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        left: 0;
     }
 
     nav ul li a {
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .distributor-logo {
+        display: none; /* Hide for cleaner mobile header */
     }
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem 5%;
-    }
-    
-    .distributor-logo {
-        border-left: none !important;
-        padding-left: 0 !important;
-        margin-top: 1rem;
-    }
-
-    nav {
-        margin: 1.5rem 0;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-
-    .slide-content h2 {
-        font-size: 2.5rem;
-    }
-
-    .slide-content p {
-        font-size: 1.1rem;
-    }
-
     .section-title {
         font-size: 2.2rem;
         margin-bottom: 2.5rem;
