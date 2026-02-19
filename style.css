@@ -175,6 +175,7 @@ nav ul li a:hover::after {
     max-width: 900px;
 }
 
+.slide-content h1,
 .slide-content h2 {
     font-size: 4.5rem; /* Reverted to immersive font size */
     color: var(--white);
@@ -188,6 +189,12 @@ nav ul li a:hover::after {
     transition-delay: 0.3s;
 }
 
+.slide.active .slide-content h1,
+.slide.active .slide-content h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .slide-content p {
     font-size: 1.5rem;
     opacity: 0;
@@ -197,7 +204,6 @@ nav ul li a:hover::after {
     transition-delay: 0.6s;
 }
 
-.slide.active .slide-content h2,
 .slide.active .slide-content p {
     opacity: 1;
     transform: translateY(0);
