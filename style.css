@@ -652,25 +652,26 @@ section.visible {
     
     header {
         padding: 1rem 5%;
-        height: 80px; /* Fixed height for header */
+        height: 100px; /* Increased height for larger logo */
     }
     
     .logo-container img {
-        height: 60px;
+        height: 85px; /* Increased logo height */
     }
 
     .hamburger {
         display: flex;
+        margin-left: auto; /* Push to the right */
     }
     
     .nav-links {
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 100px; /* Updated to match new header height */
         flex-direction: column;
         background-color: var(--primary-color);
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 100px);
         text-align: center;
         transition: var(--transition);
         gap: 2rem !important;
