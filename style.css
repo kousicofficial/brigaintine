@@ -510,38 +510,6 @@ section.visible {
     height: 35px;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 968px) {
-    .about-grid, .expertise-grid, .products-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .slide-content h2 {
-        font-size: 2.5rem;
-    }
-    
-    header {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 2rem 5%;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-    
-    .logo-container img {
-        height: 100px;
-    }
-}
 
 /* Premium Footer */
 .site-footer {
@@ -624,25 +592,119 @@ section.visible {
     text-align: right;
 }
 
+/* Responsive */
 @media (max-width: 1200px) {
+    section {
+        padding: 6rem 10%;
+    }
+    .products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
     }
 }
 
+@media (max-width: 968px) {
+    section {
+        padding: 4rem 5%;
+    }
+    .about-grid, .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .slide-content h2 {
+        font-size: 3rem;
+    }
+    
+    header {
+        padding: 1rem 5%;
+    }
+    
+    .logo-container img {
+        height: 80px;
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 5%;
+    }
+    
+    .distributor-logo {
+        border-left: none !important;
+        padding-left: 0 !important;
+        margin-top: 1rem;
+    }
+
+    nav {
+        margin: 1.5rem 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .slide-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         text-align: center;
     }
-    
+
     .credits {
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content h2 {
+        font-size: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 1rem;
+        right: 1rem;
     }
 }
