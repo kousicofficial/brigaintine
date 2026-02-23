@@ -1,0 +1,490 @@
+/* ================================================
+   SERVICE PAGE STYLES — service-page.css
+   Used by: electrical-troubleshooting-repair.html
+            reconditioning-of-decanters.html
+            high-speed-separators.html
+            gasketed-plate-heat-exchanger-services.html
+   ================================================ */
+
+/* ===== HERO ===== */
+.sp-hero {
+    display: flex;
+    align-items: stretch;
+    min-height: 520px;
+    background: linear-gradient(135deg, #001226 0%, #002952 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.sp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(0,168,232,0.12), transparent 60%);
+    pointer-events: none;
+}
+
+.sp-hero-content {
+    flex: 1.1;
+    padding: 4rem 5% 4rem 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sp-badge {
+    display: inline-block;
+    background: rgba(79, 195, 247, 0.15);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    color: #4fc3f7;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: fit-content;
+    animation: fadeInDown 0.6s ease both;
+}
+
+.sp-hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    animation: fadeInDown 0.7s ease 0.1s both;
+}
+
+.sp-hero-content > p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.75;
+    max-width: 520px;
+    animation: fadeInDown 0.7s ease 0.2s both;
+}
+
+.sp-hero-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: fadeInDown 0.7s ease 0.3s both;
+}
+
+.sp-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+}
+
+.sp-check-icon {
+    color: #4fc3f7;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sp-hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInDown 0.7s ease 0.4s both;
+}
+
+.sp-btn-primary {
+    background: #4fc3f7;
+    color: #001226;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.sp-btn-primary:hover {
+    background: #81d4fa;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 195, 247, 0.4);
+}
+
+.sp-btn-outline {
+    border: 2px solid rgba(255,255,255,0.35);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.sp-btn-outline:hover {
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+    transform: translateY(-2px);
+}
+
+.sp-hero-image {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.sp-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.85) saturate(1.1);
+    transition: transform 0.8s ease;
+}
+
+.sp-hero-image:hover img {
+    transform: scale(1.03);
+}
+
+.sp-hero-image::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background: linear-gradient(to right, #001226, transparent);
+    z-index: 1;
+}
+
+/* ===== SECTION HEADER ===== */
+.sp-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sp-section-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #001226;
+    margin-bottom: 0.75rem;
+}
+
+.sp-section-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+/* ===== PROCESS STEPS ===== */
+.sp-process {
+    padding: 5rem 8%;
+    background: #f8fafc;
+}
+
+.sp-process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.sp-process-steps::before {
+    content: '';
+    position: absolute;
+    top: 3rem;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(to right, #4fc3f7, #001226);
+    z-index: 0;
+}
+
+.sp-step {
+    background: #fff;
+    border-radius: 14px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,168,232,0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.sp-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 45px rgba(0,0,0,0.1);
+    border-color: rgba(79, 195, 247, 0.3);
+}
+
+.sp-step-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #4fc3f7;
+    margin-bottom: 1rem;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.sp-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #001226;
+    margin-bottom: 0.75rem;
+}
+
+.sp-step p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* ===== SERVICES GRID ===== */
+.sp-services {
+    padding: 5rem 8%;
+    background: #fff;
+}
+
+.sp-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.sp-service-card {
+    padding: 2.5rem;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid rgba(0,168,232,0.1);
+    transition: all 0.4s ease;
+}
+
+.sp-service-card:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    border-color: rgba(79, 195, 247, 0.3);
+}
+
+.sp-service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.sp-service-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #001226;
+    margin-bottom: 0.75rem;
+}
+
+.sp-service-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+/* ===== WHY CHOOSE BRIGANTINE ===== */
+.sp-why {
+    padding: 5rem 8%;
+    background: linear-gradient(135deg, #001226 0%, #002952 100%);
+}
+
+.sp-why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.sp-why-card {
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.sp-why-card:hover {
+    background: rgba(79, 195, 247, 0.1);
+    border-color: rgba(79, 195, 247, 0.3);
+    transform: translateY(-5px);
+}
+
+.sp-why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.sp-why-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    margin-bottom: 0.75rem;
+}
+
+.sp-why-card p {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+}
+
+/* ===== CTA BANNER ===== */
+.sp-cta {
+    padding: 5rem 8%;
+    background: #4fc3f7;
+    text-align: center;
+}
+
+.sp-cta-content h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #001226;
+    margin-bottom: 1rem;
+}
+
+.sp-cta-content p {
+    font-size: 1.1rem;
+    color: rgba(0, 18, 38, 0.8);
+    margin-bottom: 2rem;
+}
+
+.sp-cta-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sp-btn-outline-light {
+    border: 2px solid #001226;
+    color: #001226;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.sp-btn-outline-light:hover {
+    background: #001226;
+    color: #4fc3f7;
+    transform: translateY(-2px);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .sp-process-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .sp-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .sp-hero {
+        flex-direction: column;
+    }
+    .sp-hero-image {
+        height: 280px;
+        flex: none;
+        order: -1;
+    }
+    .sp-hero-image::before {
+        display: none;
+    }
+    .sp-hero-content {
+        padding: 3rem 6%;
+    }
+    .sp-hero-content h1 {
+        font-size: 2.4rem;
+    }
+    .sp-process-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+    .sp-process-steps::before {
+        display: none;
+    }
+    .sp-services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .sp-why-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .sp-cta-content h2 {
+        font-size: 2.2rem;
+    }
+    .sp-section-header h2 {
+        font-size: 2rem;
+    }
+    .sp-process,
+    .sp-services,
+    .sp-why,
+    .sp-cta {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sp-hero-content h1 {
+        font-size: 1.9rem;
+    }
+    .sp-hero-content > p {
+        font-size: 1rem;
+    }
+    .sp-badge {
+        font-size: 0.78rem;
+    }
+    .sp-process-steps,
+    .sp-services-grid,
+    .sp-why-grid {
+        grid-template-columns: 1fr;
+    }
+    .sp-cta-content h2 {
+        font-size: 1.8rem;
+    }
+    .sp-cta-content p {
+        font-size: 1rem;
+    }
+    .sp-btn-primary,
+    .sp-btn-outline,
+    .sp-btn-outline-light {
+        width: 100%;
+        text-align: center;
+    }
+    .sp-hero-btns {
+        flex-direction: column;
+    }
+    .sp-section-header h2 {
+        font-size: 1.7rem;
+    }
+    .sp-process,
+    .sp-services,
+    .sp-why,
+    .sp-cta {
+        padding: 3rem 4%;
+    }
+}
+

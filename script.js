@@ -1,125 +1,137 @@
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.slider-arrow.prev');
-const nextBtn = document.querySelector('.slider-arrow.next');
-const dots = document.querySelectorAll('.dot');
-const progressBar = document.querySelector('.slider-progress');
+/* =====================================
+   AUTO SLIDER (ONE BY ONE - CLEAN)
+===================================== */
+
+const slider = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
+const progressBar = document.querySelector(".slider-progress");
 
 let currentIndex = 0;
-let autoSlideInterval;
+let autoSlide;
 
+
+/* Update Slider Position */
 function updateSlider() {
-    slider.style.transform = `translateX(-${currentIndex * 33.333}%)`;
-    
-    // Update active slide class for transitions (Ken Burns & Text animations)
-    slides.forEach((slide, index) => {
-        slide.classList.toggle('active', index === currentIndex);
+
+    if (!slider || slides.length === 0) return;
+
+    slider.style.transform =
+        `translateX(-${currentIndex * 100}%)`;
+
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === currentIndex);
     });
 
-    // Update dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-    });
-
-    // Reset and Restart Progress Bar
+    /* Progress bar */
     if (progressBar) {
-        progressBar.style.transition = 'none';
-        progressBar.style.width = '0';
-        // Force reflow
-        progressBar.offsetHeight; 
-        progressBar.style.transition = 'width 5s linear';
-        progressBar.style.width = '100%';
+
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0";
+
+        progressBar.offsetHeight;
+
+        progressBar.style.transition = "width 5s linear";
+        progressBar.style.width = "100%";
+
     }
+
 }
 
+
+/* Next Slide */
 function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+
+    currentIndex++;
+
+    if (currentIndex >= slides.length) {
+        currentIndex = 0;
+    }
+
     updateSlider();
+
 }
 
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
+
+/* Start Auto Play */
+function startSlider() {
+
+    clearInterval(autoSlide);
+
+    autoSlide = setInterval(nextSlide, 5000);
+
 }
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000);
-}
 
-function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    startAutoSlide();
-}
+/* ================= HAMBURGER ================= */
 
-// Event Listeners
-if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoSlide();
-    });
-}
-
-if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoSlide();
-    });
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateSlider();
-        resetAutoSlide();
-    });
-});
-
-// Intersection Observer for Section Animations
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Hamburger Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const navItems = document.querySelectorAll('.nav-links li a');
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
 
 if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+
+    hamburger.addEventListener("click", () => {
+
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+
+        document.body.style.overflow =
+            navLinks.classList.contains("active")
+                ? "hidden"
+                : "auto";
+
     });
+
 }
 
-// Close menu when a link is clicked
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = 'auto';
+
+/* Close menu on click */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+            document.body.style.overflow = "auto";
+
+        });
+
     });
+
+
+/* ================= SCROLL ANIMATION ================= */
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+
+    });
+
+}, { threshold: 0.15 });
+
+
+document
+    .querySelectorAll("section, .site-footer")
+    .forEach(el => observer.observe(el));
+
+
+/* ================= INIT ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (slides.length > 0) {
+
+        slides[0].classList.add("active");
+
+        updateSlider();
+        startSlider();
+
+    }
+
 });
-
-// Initialize
-if (slides.length > 0) {
-    slides[0].classList.add('active');
-}
-if (progressBar) {
-    progressBar.style.width = '100%';
-}
-startAutoSlide();
