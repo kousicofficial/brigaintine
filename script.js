@@ -40,26 +40,61 @@ function updateSlider() {
 
 /* Next Slide */
 function nextSlide() {
-
     currentIndex++;
-
     if (currentIndex >= slides.length) {
         currentIndex = 0;
     }
-
     updateSlider();
+    startSlider(); // Reset timer on manual move
+}
 
+function prevSlide() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+    }
+    updateSlider();
+    startSlider(); // Reset timer on manual move
 }
 
 
 /* Start Auto Play */
 function startSlider() {
-
     clearInterval(autoSlide);
-
     autoSlide = setInterval(nextSlide, 5000);
-
 }
+
+
+/* ================= SLIDER CONTROLS ================= */
+
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const dots = document.querySelectorAll(".dot");
+
+if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+
+dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateSlider();
+        startSlider();
+    });
+});
+
+/* Update slider dots on change */
+function updateDots() {
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+    });
+}
+
+// Update updateSlider to include dots
+const originalUpdateSlider = updateSlider;
+updateSlider = function() {
+    originalUpdateSlider();
+    if (dots.length > 0) updateDots();
+};
 
 
 /* ================= HAMBURGER ================= */

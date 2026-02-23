@@ -16,6 +16,12 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 body {
   font-family: "Outfit", "Inter", sans-serif;
   line-height: 1.8;
@@ -27,7 +33,7 @@ body {
 
 /* Header & Nav */
 header {
-  background-color: var(--primary-color);
+  background-color: #001226;
   backdrop-filter: blur(10px);
   color: var(--white);
   padding: 0.25rem 10%; /* Minimizing vertical padding for the most compact nav bar */
@@ -687,7 +693,7 @@ nav ul li a.active {
 
 /* Global Section Styles */
 section {
-  padding: 8rem 15%; /* Reverted to spacious side padding */
+  padding: 4rem 15%; /* Reduced vertical padding */
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -910,10 +916,20 @@ section.visible {
 
 /* Premium Footer */
 .site-footer {
-  background-color: var(--primary-color);
+  background-color: #001226;
   color: #94a3b8;
   font-size: 0.95rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-footer a {
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--accent-color) !important;
 }
 
 /* Footer Logo Row */

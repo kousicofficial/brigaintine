@@ -26,7 +26,7 @@
 
 .sp-hero-content {
     flex: 1.1;
-    padding: 4rem 5% 4rem 8%;
+    padding: 2rem 5% 2rem 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,7 +184,7 @@
 
 /* ===== PROCESS STEPS ===== */
 .sp-process {
-    padding: 5rem 8%;
+    padding: 3rem 8%;
     background: #f8fafc;
 }
 
@@ -248,7 +248,7 @@
 
 /* ===== SERVICES GRID ===== */
 .sp-services {
-    padding: 5rem 8%;
+    padding: 3rem 8%;
     background: #fff;
 }
 
@@ -293,7 +293,7 @@
 
 /* ===== WHY CHOOSE BRIGANTINE ===== */
 .sp-why {
-    padding: 5rem 8%;
+    padding: 3rem 8%;
     background: linear-gradient(135deg, #001226 0%, #002952 100%);
 }
 
@@ -338,7 +338,7 @@
 
 /* ===== CTA BANNER ===== */
 .sp-cta {
-    padding: 5rem 8%;
+    padding: 3rem 8%;
     background: #4fc3f7;
     text-align: center;
 }
