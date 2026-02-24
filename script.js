@@ -1,172 +1,118 @@
 /* =====================================
-   AUTO SLIDER (ONE BY ONE - CLEAN)
+   THREE.JS 3D HERO ANIMATION
 ===================================== */
 
-const slider = document.querySelector(".slider");
-const slides = document.querySelectorAll(".slide");
-const progressBar = document.querySelector(".slider-progress");
-
-let currentIndex = 0;
-let autoSlide;
-
-
-/* Update Slider Position */
-function updateSlider() {
-
-    if (!slider || slides.length === 0) return;
-
-    slider.style.transform =
-        `translateX(-${currentIndex * 100}%)`;
-
-    slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === currentIndex);
-    });
-
-    /* Progress bar */
-    if (progressBar) {
-
-        progressBar.style.transition = "none";
-        progressBar.style.width = "0";
-
-        progressBar.offsetHeight;
-
-        progressBar.style.transition = "width 5s linear";
-        progressBar.style.width = "100%";
-
-    }
-
-}
-
-
-/* Next Slide */
-function nextSlide() {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-        currentIndex = 0;
-    }
-    updateSlider();
-    startSlider(); // Reset timer on manual move
-}
-
-function prevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = slides.length - 1;
-    }
-    updateSlider();
-    startSlider(); // Reset timer on manual move
-}
-
-
-/* Start Auto Play */
-function startSlider() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(nextSlide, 5000);
-}
-
-
-/* ================= SLIDER CONTROLS ================= */
-
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-const dots = document.querySelectorAll(".dot");
-
-if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-
-dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateSlider();
-        startSlider();
-    });
-});
-
-/* Update slider dots on change */
-function updateDots() {
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-    });
-}
-
-// Update updateSlider to include dots
-const originalUpdateSlider = updateSlider;
-updateSlider = function() {
-    originalUpdateSlider();
-    if (dots.length > 0) updateDots();
-};
-
-
-/* ================= HAMBURGER ================= */
-
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-if (hamburger && navLinks) {
-
-    hamburger.addEventListener("click", () => {
-
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-
-        document.body.style.overflow =
-            navLinks.classList.contains("active")
-                ? "hidden"
-                : "auto";
-
-    });
-
-}
-
-
-/* Close menu on click */
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
-            document.body.style.overflow = "auto";
-
-        });
-
-    });
-
-
-/* ================= SCROLL ANIMATION ================= */
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-
-    });
-
-}, { threshold: 0.15 });
-
-
-document
-    .querySelectorAll("section, .site-footer")
-    .forEach(el => observer.observe(el));
-
-
-/* ================= INIT ================= */
-
 document.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.querySelector("#hero-canvas");
+    if (!canvas) return;
 
-    if (slides.length > 0) {
+    // SCENE SETUP
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true
+    });
 
-        slides[0].classList.add("active");
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        updateSlider();
-        startSlider();
+    // GEOMETRY - Particle Grid
+    const particlesCount = 1500;
+    const positions = new Float32Array(particlesCount * 3);
+    const colors = new Float32Array(particlesCount * 3);
 
+    for (let i = 0; i < particlesCount * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 10;
+        colors[i] = Math.random();
     }
 
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    // MATERIAL
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.015,
+        vertexColors: false,
+        color: 0x00a8e8,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+    });
+
+    // POINTS
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    camera.position.z = 3;
+
+    // MOUSE INTERACTION
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // RESPONSIVE
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // ANIMATION LOOP
+    const clock = new THREE.Clock();
+
+    const animate = () => {
+        const elapsedTime = clock.getElapsedTime();
+
+        // Update particles
+        particlesMesh.rotation.y = elapsedTime * 0.05;
+        
+        // Mouse follow effect
+        particlesMesh.rotation.x += (mouseY * 0.1 - particlesMesh.rotation.x) * 0.05;
+        particlesMesh.rotation.y += (mouseX * 0.1 - particlesMesh.rotation.y) * 0.05;
+
+        renderer.render(scene, camera);
+        window.requestAnimationFrame(animate);
+    };
+
+    animate();
+
+
+    /* ================= HAMBURGER ================= */
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+            document.body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "auto";
+        });
+    }
+
+    /* Close menu on click */
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (hamburger) hamburger.classList.remove("active");
+            if (navLinks) navLinks.classList.remove("active");
+            document.body.style.overflow = "auto";
+        });
+    });
+
+    /* ================= SCROLL ANIMATION ================= */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section, .site-footer").forEach(el => observer.observe(el));
 });

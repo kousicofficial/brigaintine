@@ -57,46 +57,23 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="slider-container">
-            <div class="slider">
-                <!-- Slide 1 -->
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=100&w=1920');">
-                    <div class="slide-content">
-                        <h1>Spiral Heat Exchangers</h1>
-                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">World-class industrial separation and heat transfer solutions.</p>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="slide" style="background-image: url('gas.jpg');">
-                    <div class="slide-content">
-                        <h2>Plate Heat Exchangers</h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Authorized distributor of Alfa Laval India Pvt Ltd.</p>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="slide" style="background-image: url('e4ede1e9a6cb4b8a04a35b77ae611f91_high.webp');">
-                    <div class="slide-content">
-                        <h2>Industrial Solutions</h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Reliable engineering services and high-performance equipment.</p>
-                    </div>
+    <section class="hero-3d-bg">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content-3d">
+            <div class="hero-text-container">
+                <span class="eyebrow">Authorized Alfa Laval India Distributor</span>
+                <h1>Advanced Engineering <br><span class="accent">Solutions</span></h1>
+                <p>Delivering world-class industrial separation and heat transfer technology with precision and reliability.</p>
+                <div class="hero-actions">
+                    <a href="services.html" class="btn btn-primary">Our Services</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
                 </div>
             </div>
-            
-            <!-- Slider Controls -->
-            <button class="slider-arrow prev">&lt;</button>
-            <button class="slider-arrow next">&gt;</button>
-            
-            <div class="slider-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="slider-progress"></div>
         </div>
     </section>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 
     <section id="about">
         <div class="about-grid">
@@ -196,10 +173,6 @@
             </div>
         </div>
     </section>
-
-    <a href="https://wa.me/878589938" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
 
    <footer class="site-footer">
 

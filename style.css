@@ -123,18 +123,29 @@ nav ul li a:hover::after {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%; /* Eliminated gap to keep mouse hover active */
   left: 50%;
   transform: translateX(-50%);
   background: #001226;
   border: 1px solid rgba(0, 168, 232, 0.15);
   border-radius: 10px;
   min-width: 280px;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0; /* Slightly increased for better spacing */
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   z-index: 999;
   flex-direction: column;
   gap: 0;
+}
+
+/* Hover bridge to ensure menu stays open while moving cursor */
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: transparent;
 }
 
 .nav-dropdown:hover .dropdown-menu {
@@ -488,214 +499,129 @@ nav ul li a.active {
   }
 }
 
-.hero {
-  position: relative;
-  height: 90vh; /* Reverted to immersive height */
-  overflow: hidden;
-  background: var(--primary-color);
-  padding: 0 !important; /* Force full width background */
-  margin: 0;
+/* ==================== 3D HERO SECTION ==================== */
+/* ==================== 3D HERO BACKGROUND ==================== */
+.hero-3d-bg {
+  position: relative !important;
+  background: #000c1a !important; /* Base color for depth */
+  overflow: hidden !important;
 }
 
-.slider-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.slider {
-  display: flex;
-  width: 300%;
-  height: 100%;
-  transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.slide {
-  width: 33.333%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 15%;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  text-align: center;
-  overflow: hidden; /* For Ken Burns zoom */
-}
-
-/* Ken Burns Effect */
-.slide::before {
-  content: "";
+#hero-canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  transition: transform 10s linear;
-  transform: scale(1.1);
-}
-
-.slide.active::before {
-  transform: scale(1.25);
-}
-
-.slide::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7));
+  width: 100% !important;
+  height: 100% !important;
   z-index: 1;
+  pointer-events: none; /* Allow clicks to pass through if needed, though script handles movement */
 }
 
-.slide-content {
+.hero-content-3d {
   position: relative;
   z-index: 2;
+  text-align: center;
   color: var(--white);
-  max-width: 900px;
+  padding: 0 10%;
+  max-width: 1200px;
 }
 
-.slide-content h1,
-.slide-content h2 {
-  font-size: 4.5rem; /* Reverted to immersive font size */
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 2rem;
-  font-weight: 700;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    transform 1s cubic-bezier(0.19, 1, 0.22, 1),
-    opacity 1s ease;
-  transition-delay: 0.3s;
-}
-
-.slide.active .slide-content h1,
-.slide.active .slide-content h2 {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-content p {
-  font-size: 1.5rem;
-  opacity: 0;
-  transform: translateY(30px);
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  transition:
-    transform 1s cubic-bezier(0.19, 1, 0.22, 1),
-    opacity 1s ease;
-  transition-delay: 0.6s;
-}
-
-.slide.active .slide-content p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Slider Progress Bar */
-.slider-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 4px;
-  background: var(--accent-color);
-  width: 0;
-  z-index: 15;
-  transition: width 5s linear;
-}
-
-/* Slider Controls */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(15, 23, 42, 0.1);
-  color: var(--primary-color);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
+.hero-text-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  z-index: 10;
+  gap: 1.5rem;
+  animation: fadeIn 1.2s ease-out;
 }
 
-.slider-arrow:hover {
-  background: var(--primary-color);
-  color: var(--white);
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 600;
 }
 
-.slider-arrow.prev {
-  left: 2rem;
-}
-.slider-arrow.next {
-  right: 2rem;
+.hero-content-3d h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.slider-dots {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+.hero-content-3d h1 .accent {
+  background: linear-gradient(135deg, #00a8e8, #4fc3f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content-3d p {
+  font-size: 1.35rem;
+  max-width: 700px;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
   display: flex;
-  gap: 1rem;
-  z-index: 10;
+  gap: 1.5rem;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(15, 23, 42, 0.2);
-  cursor: pointer;
+.btn {
+  padding: 1rem 2.5rem;
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: var(--transition);
+  cursor: pointer;
+  display: inline-block;
 }
 
-.dot.active {
-  background: var(--primary-color);
-  width: 30px;
-  border-radius: 10px;
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--white);
+  border: 2px solid var(--accent-color);
 }
 
-/* Slider Overrides */
-.slider-arrow {
-  background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(5px);
-  color: var(--white) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--accent-color);
 }
 
-.slider-arrow:hover {
-  background: var(--accent-color) !important;
-  border-color: var(--accent-color) !important;
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
 }
 
-.dot {
-  background: rgba(255, 255, 255, 0.3) !important;
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
 }
 
-.dot.active {
-  background: var(--white) !important;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-3d { height: 80vh; }
+  .hero-content-3d h1 { font-size: 3.5rem; }
+  .hero-content-3d p { font-size: 1.1rem; }
+  .hero-actions { flex-direction: column; width: 100%; gap: 1rem; }
+  .btn { width: 100%; text-align: center; }
 }
 
 /* Global Section Styles */
 section {
-  padding: 4rem 15%; /* Reduced vertical padding */
-  opacity: 0;
-  transform: translateY(30px);
+  padding: 2.5rem 15%; /* Reduced from 4rem for a more compact layout */
+  opacity: 1; /* Ensure visible by default */
+  transform: none;
   transition:
     opacity 1s ease,
     transform 1s ease;
@@ -709,7 +635,7 @@ section.visible {
 .section-title {
   font-size: 3rem;
   color: var(--primary-color);
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem; /* Reduced from 4rem */
   text-align: center;
   font-weight: 700;
 }
@@ -717,9 +643,11 @@ section.visible {
 /* Products Section */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards in same line */
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem; /* Increased gap for more space */
   padding: 2rem 0;
+  max-width: 1400px; /* Ensure cards can get wider on large screens */
+  margin: 0 auto;
 }
 
 .product-card {
@@ -745,7 +673,7 @@ section.visible {
 }
 
 .product-body {
-  padding: 2rem;
+  padding: 1.25rem 1.5rem; /* Reduced vertical padding to decrease height */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -755,9 +683,9 @@ section.visible {
 
 .product-body h3 {
   color: var(--primary-color);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  min-height: 3rem;
+  font-size: 1.15rem; /* Slightly smaller for better fit */
+  margin-bottom: 0.75rem; /* Reduced margin */
+  min-height: 2.5rem; /* Reduced min-height */
   display: flex;
   align-items: center;
 }
@@ -766,7 +694,7 @@ section.visible {
   width: 40px;
   height: 2px;
   background: var(--primary-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Reduced margin */
 }
 
 .product-body p {
@@ -1386,7 +1314,7 @@ section.visible {
 
 /* Service Categories (Image 2) */
 .service-categories {
-  padding: 8rem 10%;
+  padding: 5rem 10%; /* Reduced from 8rem */
   background: var(--white);
 }
 
@@ -1438,7 +1366,7 @@ section.visible {
 /* Timeline Refinements */
 .timeline-section {
   position: relative;
-  padding: 10rem 0;
+  padding: 6rem 0; /* Reduced from 10rem */
   background: #fcfcfc;
 }
 

@@ -60,8 +60,9 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="sp-hero">
-      <div class="sp-hero-content">
+    <section class="sp-hero hero-3d-bg">
+      <canvas id="hero-canvas"></canvas>
+      <div class="sp-hero-content" style="position: relative; z-index: 2;">
         <div class="sp-badge">Electrical Services</div>
         <h1>Electrical Troubleshooting &amp; Repair</h1>
         <p>
@@ -89,13 +90,16 @@
           <a href="#process" class="sp-btn-outline">Learn More</a>
         </div>
       </div>
-      <div class="sp-hero-image">
+      <div class="sp-hero-image" style="position: relative; z-index: 2;">
         <img
-          src="electrician-working-on-electrical-panel-profession.jpg"
+          src="electrical_troubleshooting_and_repair.webp"
           alt="Electrical Troubleshooting"
         />
       </div>
     </section>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 
     <!-- ===== HOW WE DIAGNOSE & REPAIR ===== -->
     <section class="sp-process" id="process">

@@ -6,6 +6,7 @@
     <title>High Speed Separator Maintenance | Brigantine Engineering</title>
     <meta name="description" content="Specialized maintenance and reconditioning services for high-speed separators. Ensure precision balancing and optimal separation with Brigantine Engineering.">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="service-page.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -56,34 +57,147 @@
     </header>
 
     <section
-      class="hero-sub"
+      class="hero-sub hero-3d-bg"
       style="
         height: 300px;
-        background-color: var(--primary-color);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--white);
+        position: relative;
       "
     >
-      <h1>High-Speed Separators</h1>
+      <canvas id="hero-canvas"></canvas>
+      <h1 style="position: relative; z-index: 2">High-Speed Separators</h1>
     </section>
 
-    <section style="padding: 8rem 15%">
-      <h2>Maintenance and reconditioning services</h2>
-      <p>
-        These services ensure precision balancing, smooth operation, and optimal
-        separation quality, which is critical for industries that rely on
-        high-accuracy processing.
-      </p>
-      <p>
-        Maintenance and reconditioning services that optimize the efficiency of
-        high-speed separators. We support industries that rely on stable
-        separation performance—helping operators maintain uptime, reduce
-        mechanical failures, and improve equipment life through precise
-        reconditioning practices.
-      </p>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <!-- ===== INTRO SPLIT SECTION ===== -->
+    <section class="sp-hero" style="min-height: auto;">
+      <div class="sp-hero-content">
+        <span class="sp-badge">Specialist Service</span>
+        <h1 style="font-size: 2.4rem;">High-Speed Separators</h1>
+        <p>
+          At Brigantine Engineering Services, we provide precision maintenance
+          and reconditioning services for high-speed separators. We ensure
+          optimal separation quality, smooth vibration-free operation, and
+          extended equipment life — keeping your processes running at peak
+          efficiency.
+        </p>
+        <div class="sp-hero-checklist">
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Precision balancing for vibration-free high-speed operation</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>OEM-standard component repair and replacement</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Full-speed performance testing before delivery</span>
+          </div>
+        </div>
+        <div class="sp-hero-btns">
+          <a href="contact.html" class="sp-btn-primary">Request Service</a>
+          <a href="services.html" class="sp-btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="sp-hero-image">
+        <img src="high_speed_separators.webp" alt="High-Speed Separators" />
+      </div>
     </section>
+
+    <!-- ===== HOW WE SERVICE HIGH-SPEED SEPARATORS ===== -->
+    <section class="sp-process">
+      <div class="sp-section-header">
+        <h2>Why Choose Our High-Speed Separators</h2>
+        <p>A proven methodology for restoring centrifugal separation performance</p>
+      </div>
+      <div class="sp-process-steps">
+
+        <div class="sp-step">
+          <div class="sp-step-number">01</div>
+          <h3>Inspection &amp; Dismantling</h3>
+          <p>The separator is fully disassembled; bowl, disc stack, bearings, and housing are inspected for wear, cracks, imbalance, corrosion, and dimensional accuracy.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">02</div>
+          <h3>Cleaning &amp; Surface Preparation</h3>
+          <p>All parts are deep-cleaned, degreased, grit-blasted, and prepared for restoration. Disc stacks and critical surfaces are precision-cleaned for optimal performance.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">03</div>
+          <h3>Repair of Bowl, Disc Stack &amp; Shafts</h3>
+          <p>Damaged surfaces are rebuilt, hardfaced, or machined. Disc stacks are repaired or replaced. Shafts, bearings, and seals are overhauled to meet OEM tolerances.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">04</div>
+          <h3>Balancing &amp; Reassembly</h3>
+          <p>The bowl, disc stack, and rotating assembly are dynamically balanced for smooth operation. The unit is reassembled with new bearings, seals, gaskets, and precision alignment.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">05</div>
+          <h3>Final Testing &amp; Quality Check</h3>
+          <p>The reconditioned separator undergoes full-speed test runs checking vibration, flow performance, temperature, noise, pressure, and discharge — ensuring peak performance before dispatch.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="sp-why">
+      <div class="sp-section-header" style="margin-bottom: 3rem;">
+        <h2 style="color: #4fc3f7;">Why Choose Us for High-Speed Separators?</h2>
+        <p style="color: rgba(255,255,255,0.65);">What makes our separation solutions stand out</p>
+      </div>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🎯</div>
+          <h3>Precision Reconditioning</h3>
+          <p>Every separator is reconditioned to exact OEM specifications using advanced workshop equipment — ensuring you get back a machine that performs like new.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">⚖️</div>
+          <h3>Dynamic Balancing Expertise</h3>
+          <p>Our specialist balancing facility corrects even the most complex imbalance issues, guaranteeing vibration-free operation at full rated speed.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🛡️</div>
+          <h3>Quality Guaranteed</h3>
+          <p>Each reconditioned unit is backed by full quality documentation including test certificates, balance reports, and component inspection records.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">⚡</div>
+          <h3>Minimise Downtime</h3>
+          <p>Our efficient process and dedicated team mean fast turnaround times, so your operations are back up and running with minimal production disruption.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="sp-cta">
+      <div class="sp-cta-content">
+        <h2>Need Expert High-Speed Separator Service?</h2>
+        <p>Contact us today for a free consultation and transparent quote. We're ready to restore your separator to peak performance.</p>
+        <div class="sp-cta-btns">
+          <a href="contact.html" class="sp-btn-primary">Get Free Quote</a>
+          <a href="tel:+61XXXXXXXX" class="sp-btn-outline-light">Call Us Now</a>
+        </div>
+      </div>
+    </section>
+
 
     <footer class="site-footer">
       <div class="footer-grid">

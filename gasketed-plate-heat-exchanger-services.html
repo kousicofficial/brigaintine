@@ -6,6 +6,7 @@
     <title>Plate Heat Exchanger Services | Brigantine Engineering</title>
     <meta name="description" content="Professional cleaning, re-gasketing, and testing services for gasketed plate heat exchangers. Maximize efficiency and prevent leaks with our expert care.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="service-page.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -36,14 +37,142 @@
         </div>
     </header>
 
-    <section class="hero-sub" style="height: 300px; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--white);">
-        <h1>Plate Heat Exchanger Services</h1>
+    <section class="hero-sub hero-3d-bg" style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--white); position: relative;">
+        <canvas id="hero-canvas"></canvas>
+        <h1 style="position: relative; z-index: 2;">Plate Heat Exchanger Services</h1>
     </section>
 
-    <section style="padding: 8rem 15%;">
-        <h2>Professional cleaning, re-gasketing, and testing</h2>
-        <p>Regular servicing ensures better heat transfer efficiency, leak prevention, and energy savings, maximizing system performance while minimizing operational costs.</p>
-        <p>Professional cleaning, re-gasketing, and testing to restore heat exchanger performance. We support industries that rely on stable separation performance—helping operators maintain uptime, reduce mechanical failures, and improve equipment life through precise reconditioning practices.</p>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <!-- ===== INTRO SPLIT SECTION ===== -->
+    <section class="sp-hero" style="min-height: auto;">
+      <div class="sp-hero-content">
+        <span class="sp-badge">Specialist Service</span>
+        <h1 style="font-size: 2.4rem;">Gasketed Plate Heat Exchanger Services</h1>
+        <p>
+          We provide complete service solutions for Gasketed Plate Heat
+          Exchangers to ensure efficient heat transfer, leak-free operation, and
+          extended equipment life. Our services are suitable for HVAC, food
+          &amp; beverage, chemical, oil &amp; gas, pharmaceutical, and
+          industrial process applications.
+        </p>
+        <div class="sp-hero-checklist">
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Comprehensive inspection, cleaning &amp; re-gasketing</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Leak &amp; pressure testing to confirm safe operation</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Suitable for all major PHE brands and industries</span>
+          </div>
+        </div>
+        <div class="sp-hero-btns">
+          <a href="contact.html" class="sp-btn-primary">Request Service</a>
+          <a href="services.html" class="sp-btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="sp-hero-image">
+        <img src="gasketed_plate_heat_exchanger.webp" alt="Gasketed Plate Heat Exchanger Services" />
+      </div>
+    </section>
+
+    <!-- ===== OUR SERVICES INCLUDE ===== -->
+    <section class="sp-services">
+      <div class="sp-section-header">
+        <h2>Our Services Include</h2>
+        <p>Comprehensive solutions for your heat exchanger needs</p>
+      </div>
+      <div class="sp-services-grid">
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">🔍</div>
+          <h3>Inspection &amp; Performance Evaluation</h3>
+          <p>Checking plates, gaskets, and flow performance to identify wear, fouling, leaks, and efficiency loss before they cause costly downtime.</p>
+        </div>
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">🧹</div>
+          <h3>Plate Cleaning</h3>
+          <p>Chemical, manual, and high-pressure cleaning to remove scale, sludge, and deposits from plates — fully restoring heat transfer efficiency.</p>
+        </div>
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">🔩</div>
+          <h3>Gasket Replacement &amp; Re-gasketing</h3>
+          <p>Replacing damaged or aged gaskets to ensure proper sealing and prevent leakage, using the correct material grade for your process fluid.</p>
+        </div>
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">🛠️</div>
+          <h3>Plate Replacement &amp; Reconditioning</h3>
+          <p>Repairing or replacing worn or damaged plates to extend equipment life and restore full heat transfer capacity to your system.</p>
+        </div>
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">📊</div>
+          <h3>Leak Testing &amp; Pressure Testing</h3>
+          <p>Testing the exchanger under pressure to verify leak-free and safe operation before returning to service — with full certification provided.</p>
+        </div>
+
+        <div class="sp-service-card">
+          <div class="sp-service-icon">⚡</div>
+          <h3>Troubleshooting &amp; Efficiency Improvement</h3>
+          <p>Identifying operational issues such as poor temperature approach, cross-contamination, or pressure drop — and optimizing for maximum efficiency.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE BRIGANTINE ===== -->
+    <section class="sp-why">
+      <div class="sp-section-header" style="margin-bottom: 3rem;">
+        <h2 style="color: #4fc3f7;">Why You Choose Brigantine?</h2>
+        <p style="color: rgba(255,255,255,0.65);">What sets us apart from the competition</p>
+      </div>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🏭</div>
+          <h3>Industry-Wide Experience</h3>
+          <p>We service PHEs across HVAC, food &amp; beverage, chemical, oil &amp; gas, pharmaceutical, and general industrial applications with proven expertise.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🔬</div>
+          <h3>All Major Brands Supported</h3>
+          <p>Our team works with all major heat exchanger manufacturers including Alfa Laval, GEA, APV, SPX, Tranter, and more — with OEM-compatible parts.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">📋</div>
+          <h3>Full Service Documentation</h3>
+          <p>Every service is supported by comprehensive documentation including inspection reports, pressure test certificates, and parts replacement records.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🚀</div>
+          <h3>Fast &amp; Reliable Turnaround</h3>
+          <p>We understand operational pressures. Our streamlined workshop process ensures rapid turnaround with minimum impact on your production schedule.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="sp-cta">
+      <div class="sp-cta-content">
+        <h2>Need Expert Heat Exchanger Service?</h2>
+        <p>Contact us today for a free consultation and transparent quote. We're ready to restore your heat exchanger to peak efficiency.</p>
+        <div class="sp-cta-btns">
+          <a href="contact.html" class="sp-btn-primary">Get Free Quote</a>
+          <a href="tel:+61XXXXXXXX" class="sp-btn-outline-light">Call Us Now</a>
+        </div>
+      </div>
     </section>
 
     <footer class="site-footer">
@@ -52,7 +181,7 @@
                 <h4><span class="bracket">[</span> CONTACT US <span class="bracket">]</span></h4>
                 <p>contact@brigantine.com</p>
                 <p>+61 (0) 2 XXXX XXXX</p>
-                <p>Australia & New Zealand</p>
+                <p>Australia &amp; New Zealand</p>
             </div>
             <div class="footer-col">
                 <h4><span class="bracket">[</span> QUICK LINKS <span class="bracket">]</span></h4>
@@ -88,5 +217,17 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/8778589938"
+      class="whatsapp-float"
+      target="_blank"
+      title="Chat with us on WhatsApp"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp Chat"
+      />
+    </a>
 </body>
 </html>

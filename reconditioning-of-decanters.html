@@ -6,6 +6,7 @@
     <title>Professional Decanter Reconditioning | Brigantine Services</title>
     <meta name="description" content="Expert reconditioning of decanter centrifuges to restore performance, improve efficiency, and extend equipment life. Service by Brigantine Engineering.">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="service-page.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -56,33 +57,145 @@
     </header>
 
     <section
-      class="hero-sub"
+      class="hero-sub hero-3d-bg"
       style="
         height: 300px;
-        background-color: var(--primary-color);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--white);
+        position: relative;
       "
     >
-      <h1>Reconditioning of Decanters</h1>
+      <canvas id="hero-canvas"></canvas>
+      <h1 style="position: relative; z-index: 2">Reconditioning of Decanters</h1>
     </section>
 
-    <section style="padding: 8rem 15%">
-      <h2>Comprehensive refurbishment of decanter centrifuges</h2>
-      <p>
-        Professional reconditioning extends equipment lifespan, improves
-        efficiency, and saves major replacement costs, keeping your decanters
-        performing at peak levels.
-      </p>
-      <p>
-        Comprehensive refurbishment of decanter centrifuges to revive
-        performance and extend lifespan. We support industries that rely on
-        stable separation performance—helping operators maintain uptime, reduce
-        mechanical failures, and improve equipment life through precise
-        reconditioning practices.
-      </p>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <!-- ===== INTRO SPLIT SECTION ===== -->
+    <section class="sp-hero" style="min-height: auto;">
+      <div class="sp-hero-content">
+        <span class="sp-badge">Specialist Service</span>
+        <h1 style="font-size: 2.4rem;">Reconditioning of Decanters</h1>
+        <p>
+          At Brigantine Engineering Services, we specialize in the precision
+          reconditioning of decanter centrifuges to restore their optimal
+          performance and extend operational life. Our expert team ensures that
+          every component is inspected, refurbished, and calibrated to meet
+          stringent industry standards.
+        </p>
+        <div class="sp-hero-checklist">
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Certified technicians with decades of combined experience</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>24/7 emergency response and on-site support</span>
+          </div>
+          <div class="sp-check-item">
+            <span class="sp-check-icon">✔</span>
+            <span>Latest diagnostic equipment and testing tools</span>
+          </div>
+        </div>
+        <div class="sp-hero-btns">
+          <a href="contact.html" class="sp-btn-primary">Request Service</a>
+          <a href="services.html" class="sp-btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="sp-hero-image">
+        <img src="reconditioning_of_decanters.webp" alt="Reconditioning of Decanters" />
+      </div>
+    </section>
+
+    <!-- ===== HOW WE RECONDITION ===== -->
+    <section class="sp-process">
+      <div class="sp-section-header">
+        <h2>How We Recondition Decanters</h2>
+        <p>A proven methodology for reliable and lasting results</p>
+      </div>
+      <div class="sp-process-steps">
+
+        <div class="sp-step">
+          <div class="sp-step-number">01</div>
+          <h3>Inspection &amp; Dismantling</h3>
+          <p>The decanter is fully dismantled; all components are inspected for wear, cracks, corrosion, and dimensional accuracy.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">02</div>
+          <h3>Cleaning &amp; Surface Preparation</h3>
+          <p>All parts are cleaned, grit-blasted, and prepared for repair to ensure strong adhesion and surface integrity.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">03</div>
+          <h3>Repair of Bowl, Conveyor &amp; Gearbox</h3>
+          <p>Worn areas are rebuilt, hardfaced, coated, and gearbox overhauled. Damaged components are repaired or replaced.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">04</div>
+          <h3>Balancing &amp; Reassembly</h3>
+          <p>Bowl and screw conveyor are dynamically balanced, then reassembled with new bearings, seals, and proper alignment.</p>
+        </div>
+
+        <div class="sp-step">
+          <div class="sp-step-number">05</div>
+          <h3>Final Testing &amp; Quality Check</h3>
+          <p>Machine is test-run to verify vibration, performance, temperature, and differential speed before delivery.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE BRIGANTINE ===== -->
+    <section class="sp-why">
+      <div class="sp-section-header" style="margin-bottom: 3rem;">
+        <h2 style="color: #4fc3f7;">Why You Choose Brigantine?</h2>
+        <p style="color: rgba(255,255,255,0.65);">What sets us apart from the competition</p>
+      </div>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🔧</div>
+          <h3>OEM-Level Expertise</h3>
+          <p>Our technicians are factory-trained and carry deep knowledge of all major decanter brands, ensuring reconditioning to exact manufacturer specifications.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">📋</div>
+          <h3>Comprehensive Documentation</h3>
+          <p>Every job is fully documented with before/after reports, dimensional records, balance certificates, and test results for your quality assurance records.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">⚙️</div>
+          <h3>Advanced Workshop Capability</h3>
+          <p>Our modern workshop is equipped with dynamic balancing machines, precision lathes, and NDT inspection tools for thorough and accurate reconditioning.</p>
+        </div>
+
+        <div class="sp-why-card">
+          <div class="sp-why-icon">🚀</div>
+          <h3>Fast Turnaround</h3>
+          <p>We understand every day of downtime costs money. Our streamlined process and dedicated team ensure minimum turnaround time without compromising quality.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="sp-cta">
+      <div class="sp-cta-content">
+        <h2>Need Expert Decanter Reconditioning?</h2>
+        <p>Contact us today for a free consultation and transparent quote. We're ready to restore your equipment to peak performance.</p>
+        <div class="sp-cta-btns">
+          <a href="contact.html" class="sp-btn-primary">Get Free Quote</a>
+          <a href="tel:+61XXXXXXXX" class="sp-btn-outline-light">Call Us Now</a>
+        </div>
+      </div>
     </section>
 
     <footer class="site-footer">
