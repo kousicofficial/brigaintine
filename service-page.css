@@ -61,7 +61,7 @@
 
 .sp-hero-content > p {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9); /* Increased opacity for readability */
     line-height: 1.75;
     max-width: 520px;
     animation: fadeInDown 0.7s ease 0.2s both;
@@ -179,7 +179,7 @@
 
 .sp-section-header p {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #475569; /* Slate-700 for better contrast on white */
 }
 
 /* ===== PROCESS STEPS ===== */
@@ -242,7 +242,7 @@
 
 .sp-step p {
     font-size: 0.88rem;
-    color: #64748b;
+    color: #475569; /* Darker slate */
     line-height: 1.6;
 }
 
@@ -287,7 +287,7 @@
 
 .sp-service-card p {
     font-size: 0.95rem;
-    color: #64748b;
+    color: #475569; /* Consistent darker slate */
     line-height: 1.7;
 }
 

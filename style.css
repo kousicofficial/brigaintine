@@ -5,12 +5,18 @@
   --accent: #00c2ff;
   --accent2: #0057b8;
   --accent-glow: rgba(0, 194, 255, 0.4);
-  --text: #b8d4ea;
-  --text-muted: #8ba6bb;
+  --text: #e2e8f0;      /* Crispier off-white for dark backgrounds */
+  --text-muted: #94a3b8; /* Cleaner slate for secondary text */
+  --text-dark: #1a202c;  /* Rich charcoal for light backgrounds */
   --white: #ffffff;
   --bg-light: #051829;
   --bg-card: #071f35;
   --border: rgba(0, 194, 255, 0.15);
+  
+  /* Legacy Mappings for Compatibility */
+  --primary-color: var(--primary);
+  --accent-color: var(--accent);
+  --text-color: var(--text-dark);
   
   /* Glassmorphism */
   --glass-bg: rgba(2, 13, 26, 0.7);
@@ -499,7 +505,7 @@ header {
 }
 
 .vm-card p {
-  color: var(--text-color);
+  color: var(--text-dark);
   font-size: 1.05rem;
   line-height: 1.8;
   font-style: italic;
@@ -683,7 +689,7 @@ header {
 
 .team-card p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 /* About CTA */
@@ -999,7 +1005,7 @@ section.visible {
 
 .product-body p {
   font-size: 0.9rem;
-  color: var(--text-color);
+  color: var(--text-dark);
   line-height: 1.8;
 }
 
@@ -1095,6 +1101,7 @@ section.visible {
   position: relative;
   padding-left: 2rem;
   font-weight: 500;
+  color: var(--text-dark);
   transition: var(--transition);
 }
 
@@ -1647,7 +1654,7 @@ section.visible {
   margin-bottom: 1.5rem;
   position: relative;
   padding-left: 1.5rem;
-  color: var(--grey-dark);
+  color: var(--text-dark);
   font-weight: 500;
 }
 
@@ -1701,6 +1708,7 @@ section.visible {
   flex: 1;
   padding: 4rem;
   position: relative;
+  color: var(--text-dark);
 }
 
 .timeline-item-image {
