@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focused Industry | Brigantine Engineering Australia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body{overflow-x:hidden}
+
+        /* ===== SECTOR INTRO ===== */
+        :root{--fi-accent:#00c2ff;--fi-accent2:#0057b8;--fi-dark:#020d1a;--fi-mid:#051829;--fi-card:#071f35;--fi-border:rgba(0,194,255,0.15);--fi-text:#b8d4ea}
+        
+        /* Layout Refinements */
+        .fi-intro{padding:80px 5%;background:#fff}
+        .fi-intro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .fi-intro-badge{display:inline-block;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--fi-accent2);background:rgba(0,87,184,0.05);padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:700}
+        .fi-intro h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;color:var(--fi-dark);line-height:1.2;margin-bottom:24px}
+        .fi-intro h2 span{color:var(--fi-accent2)}
+        .fi-intro p{font-size:1.05rem;line-height:1.8;color:#4a5568}
+        .fi-intro-img img{width:100%;height:440px;object-fit:cover;border-radius:8px;box-shadow:0 30px 60px rgba(0,0,0,0.1)}
+
+        .fi-industries{background:var(--fi-mid);padding:100px 5%;position:relative}
+        .fi-ind-inner{max-width:1200px;margin:0 auto}
+        .fi-ind-header{text-align:center;margin-bottom:60px}
+        .fi-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;color:#fff;font-family:'Outfit',sans-serif}
+        .fi-title span{color:var(--fi-accent)}
+        
+        .fi-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px}
+        .fi-item{background:var(--fi-card);padding:24px;border:1px solid var(--fi-border);border-radius:6px;display:flex;align-items:center;gap:15px;transition:all 0.3s ease;cursor:default}
+        .fi-item:hover{background:var(--fi-accent2);border-color:var(--fi-accent);transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.3)}
+        .fi-item-dot{width:8px;height:8px;background:var(--fi-accent);border-radius:50%;flex-shrink:0}
+        .fi-item:hover .fi-item-dot{background:#fff}
+        .fi-item-text{font-size:0.95rem;color:var(--fi-text);font-weight:600;font-family:'Outfit',sans-serif}
+        .fi-item:hover .fi-item-text{color:#fff}
+        .fi-industries::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);pointer-events:none}
+        .fi-ind-inner{max-width:1200px;margin:0 auto}
+        .fi-ind-header{text-align:center;margin-bottom:56px}
+        .fi-eyebrow{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent,#3b82f6);font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:12px}
+        .fi-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:#fff;font-family:'Outfit',sans-serif;line-height:1.2;letter-spacing:-.02em}
+        .fi-title span{color:var(--accent,#3b82f6)}
+
+        /* Staggered two-column ribbon list */
+        .fi-stagger{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(59,130,246,.08)}
+        .fi-col-wrap{display:flex;flex-direction:column;gap:2px}
+        .fi-item{background:#0b1420;padding:14px 20px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;transition:all .35s ease;cursor:default}
+        .fi-item:hover{background:#0f1e30;padding-left:26px}
+        .fi-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent,#3b82f6),rgba(59,130,246,.3));transform:scaleY(0);transform-origin:top;transition:transform .35s ease}
+        .fi-item:hover::before{transform:scaleY(1)}
+        .fi-item-dot{width:5px;height:5px;border-radius:50%;background:var(--accent,#3b82f6);flex-shrink:0;opacity:.5;transition:opacity .3s}
+        .fi-item:hover .fi-item-dot{opacity:1}
+        .fi-item-text{font-size:.875rem;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;transition:color .3s}
+        .fi-item:hover .fi-item-text{color:#fff}
+
+        /* stagger odd-column items on desktop */
+        .fi-col-left .fi-item:nth-child(even){margin-left:16px}
+        .fi-col-right .fi-item:nth-child(odd){margin-left:16px}
+
+        /* ===== reveals ===== */
+        .fi-r{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+        .fi-r.v{opacity:1;transform:none}
+        .fi-rl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+        .fi-rl.v{opacity:1;transform:none}
+        .fi-rr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+        .fi-rr.v{opacity:1;transform:none}
+
+        @media(max-width:900px){
+            .fi-intro-inner{grid-template-columns:1fr}
+            .fi-stagger{grid-template-columns:1fr}
+            .fi-col-left .fi-item:nth-child(even),.fi-col-right .fi-item:nth-child(odd){margin-left:0}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="logo-container">
+            <img src="logo-desk-scaled.jpg" alt="Brigantine Engineering Logo">
+        </div>
+        <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-dropdown">
+                <a href="about.html">About Us <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-company.html">About Company</a></li>
+                    <li><a href="values.html">Values</a></li>
+                    <li><a href="focussed-industry.html">Focused Industry</a></li>
+                    <li><a href="what-we-do.html">What We Do</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#">Products <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Plate Heat Exchangers <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="industrial-line.html">Industrial Line</a></li>
+                            <li><a href="industrial-semi-welded-line.html">Industrial Semi Welded Line</a></li>
+                            <li><a href="m-line.html">M Line</a></li>
+                            <li><a href="wide-gap.html">Wide Gap</a></li>
+                            <li><a href="brazed-plate-heat-exchangers.html">Brazed PHE</a></li>
+                            <li><a href="fusion-bonded-plate-heat-exchangers.html">Fusion Bonded PHE</a></li>
+                            <li><a href="alfacond.html">Alfacond</a></li>
+                            <li><a href="alfavap.html">Alfavap</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Welded Heat Exchangers <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="welded-plate-and-block-heat-exchanger.html">Welded Plate &amp; Block</a></li>
+                            <li><a href="welded-plate-and-shell-heat-exchanger.html">Packinox</a></li>
+                            <li><a href="duroshell.html">Duroshell</a></li>
+                            <li><a href="ziepack.html">Ziepack</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Disk Stack Separators <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="mab-separator.html">MAB Separators</a></li>
+                            <li><a href="mmb.html">MMB</a></li>
+                            <li><a href="mopx.html">MOPX</a></li>
+                            <li><a href="alfie-500.html">Alfie 500</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Decanters <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="aldec.html">Aldec</a></li>
+                            <li><a href="lynx.html">Lynx</a></li>
+                            <li><a href="p1.html">P1</a></li>
+                            <li><a href="p2.html">P2</a></li>
+                            <li><a href="p3.html">P3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="services.html">Services &amp; Support <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="gasketed-plate-heat-exchanger-services.html">Gasketed PHE Services</a></li>
+                    <li><a href="compabloc-welded-phe-services.html">Compabloc Welded PHE</a></li>
+                    <li><a href="decanter-centrifuge-service.html">Decanter Centrifuge Service</a></li>
+                    <li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting &amp; Repair</a></li>
+                    <li><a href="reconditioning-of-decanters.html">Reconditioning of Decanters</a></li>
+                    <li><a href="high-speed-separators.html">High-Speed Separators</a></li>
+                </ul>
+            </li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="energy-hunter.html">Energy Hunter</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+</nav>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <section class="hero-industrial">
+        <div class="hero-layout-grid">
+            <span class="hero-tag">About Us</span>
+            <h1 class="hero-title-bold">
+                <span><i>Focused</i></span>
+                <span class="accent"><i>Industry</i></span>
+            </h1>
+            <p class="hero-description-layered">
+                Serving Australia's most critical industrial sectors.
+                Tailored engineering solutions for minerals, energy, and process industries.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTOR INTRO -->
+    <section class="fi-intro">
+        <div class="fi-intro-inner">
+            <div class="fi-rl">
+                <div class="fi-intro-badge">Sector-Specific Engineering</div>
+                <h2>Industries We <span>Serve</span></h2>
+                <p>Brigantine provides specialised support for mining, petrochemical, power generation, and process industries. Our focus on Australia's key industrial sectors allows us to deliver high-impact results through optimised heat transfer and separation processes.</p>
+            </div>
+            <div class="fi-intro-img fi-rr">
+                <img src="focused industry.jpg" alt="Brigantine Engineering - Focused Industry Australia">
+            </div>
+        </div>
+    </section>
+
+    <section class="fi-industries">
+        <div class="fi-ind-inner">
+            <div class="fi-ind-header fi-r">
+                <p class="fi-eyebrow">// Industry Focus</p>
+                <h2 class="fi-title">Our <span>Target Sectors</span></h2>
+            </div>
+            <div class="fi-grid fi-r">
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Cement Plant</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Chemical Industry</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Coal Beneficiation</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Coke Oven Gas Plant</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Combined Heat and Power</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Commercial Refrigeration</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Consumer</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Data Centre Cooling</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Electronics &amp; Semiconductor</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Environment</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Fertilizers</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Fluid Power</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">General Manufacturing</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Government &amp; Military</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Health &amp; Life Sciences</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">HVAC Solutions</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">District Cooling</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Industrial Refrigeration</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Iron &amp; Metal Industries</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Mining &amp; Construction</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Nuclear Power</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Oil &amp; Gas</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Waste Treatment</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Paper &amp; Pulp</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Petrochemicals</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Power Generation</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Renewable Energy</span></div>
+                <div class="fi-item"><span class="fi-item-dot"></span><span class="fi-item-text">Steel Production</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="footer-products-row">
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> PLATE HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li>Industrial Line</li><li>Industrial Semi Welded Line</li><li>M Line</li><li>Wide Gap</li><li>Brazed PHE</li><li>Fusion Bonded PHE</li><li>Alfacond</li><li>Alfavap</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> WELDED HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li><a href="compabloc.html">Compabloc</a></li><li><a href="packinox.html">Packinox</a></li><li><a href="duroshell.html">Duroshell</a></li><li><a href="ziepack.html">Ziepack</a></li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK SEPARATORS <span class="bracket">]</span></h4>
+                <ul><li>MAB Separators</li><li>MMB</li><li>MOPX</li><li>Alfa 500</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK MODELS <span class="bracket">]</span></h4>
+                <ul><li>Aldec</li><li>Lynx</li><li>P1</li><li>P2</li><li>P3</li></ul>
+            </div>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> CONTACT US <span class="bracket">]</span></h4>
+                <p>support@brigantine.com.au</p><p>+61 (0) 2 8000 0000</p><p>Matraville, NSW, Australia</p>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> QUICK LINKS <span class="bracket">]</span></h4>
+                <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="applications.html">Applications</a></li><li><a href="services.html">Service &amp; Support</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h4>
+                <ul><li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting</a></li><li><a href="reconditioning-of-decanters.html">Decanter Reconditioning</a></li><li><a href="high-speed-separators.html">High Speed Separators</a></li><li><a href="gasketed-plate-heat-exchanger-services.html">Heat Exchanger Services</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> SOCIAL MEDIA <span class="bracket">]</span></h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon facebook">f</a>
+                    <a href="#" class="social-icon twitter">t</a>
+                    <a href="#" class="social-icon youtube">y</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><div class="copyright">&copy; 2026 Brigantine Engineering Services Australia</div></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="https://wa.me/8778589938" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+    </a>
+    <script>
+        const fiO = new IntersectionObserver(e => e.forEach(el => {
+            if(el.isIntersecting){el.target.classList.add('v');fiO.unobserve(el.target)}
+        }),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.fi-r,.fi-rl,.fi-rr').forEach(e=>fiO.observe(e));
+    </script>
+</body>
+</html>

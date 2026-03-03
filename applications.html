@@ -3,29 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Brigantine Engineering | Expert Industrial Solutions</title>
-
-    <meta name="description" content="Learn about Brigantine Engineering — our vision, mission, and the team dedicated to delivering world-class industrial engineering services.">
-
-    <!-- Main CSS -->
+    <title>Industrial Applications | Brigantine Engineering Services Australia</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        .about-hero { min-height: 400px; padding-top: 130px; }
-        .vision-mission-section, .about-cta, .team-section { padding: 60px 10%; }
-        .vm-card { border: 1px solid var(--border); }
-        .about-image-right h2, .about-hero-content h1 { color: var(--accent); }
-        .about-image-right { background: var(--primary); }
-        .about-features li { border-left-color: var(--accent); }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
     <header>
         <div class="logo-container">
@@ -39,7 +23,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="about-company.html">About Company</a></li>
                     <li><a href="values.html">Values</a></li>
-                    <li><a href="focussed-industry.html">Focussed Industry</a></li>
+                    <li><a href="focussed-industry.html">Focused Industry</a></li>
                     <li><a href="what-we-do.html">What We Do</a></li>
                 </ul>
             </li>
@@ -118,117 +102,84 @@
     <section class="hero-industrial">
         
         <div class="hero-layout-grid">
-            <span class="hero-tag">Core Excellence</span>
+            <span class="hero-tag">Industrial Sectors</span>
             <h1 class="hero-title-bold">
-                <span><i>About Our</i></span>
-                <span class="accent"><i>Engineering</i></span>
+                <span><i>Sector</i></span>
+                <span class="accent"><i>Applications</i></span>
             </h1>
             <p class="hero-description-layered">
-                We are a passionate Australian engineering team committed to delivering 
-                end-to-end industrial solutions with excellence, safety, and 
-                innovation at our core.
+                Brigantine provides high-performance separation and thermal solutions 
+                across Australia's most demanding industrial sectors. 
             </p>
         </div>
         
     </section>
 
-
-
-
-<!-- ================= VISION & MISSION ================= -->
-
-<section class="vision-mission-section reveal">
-    <div class="vm-grid">
-        <div class="vm-card tilt-element">
-            <div class="vm-icon">👁</div>
-            <h2>Our Vision</h2>
-            <p>
-                "To lead the Australian industrial sector towards a sustainable future through innovative
-                engineering practices that maximize efficiency and minimize environmental footprint."
-            </p>
+    <!-- ================= INDUSTRY GRID ================= -->
+    <section class="industry-grid-section">
+        <h2 class="section-title reveal">Focused Industrial Sectors</h2>
+        <div class="industry-tiles">
+            <div class="industry-tile reveal"><span>Cement Plant</span></div>
+            <div class="industry-tile reveal"><span>Chemical Industry</span></div>
+            <div class="industry-tile reveal"><span>Coal Beneficiation</span></div>
+            <div class="industry-tile reveal"><span>Coke Oven Gas Plant</span></div>
+            <div class="industry-tile reveal"><span>Combined Heat & Power</span></div>
+            <div class="industry-tile reveal"><span>Commercial Refrigeration</span></div>
+            <div class="industry-tile reveal"><span>Data Centre Cooling</span></div>
+            <div class="industry-tile reveal"><span>Electronics & Semiconductor</span></div>
+            <div class="industry-tile reveal"><span>Fertilizers</span></div>
+            <div class="industry-tile reveal"><span>Fluid Power</span></div>
+            <div class="industry-tile reveal"><span>General Manufacturing</span></div>
+            <div class="industry-tile reveal"><span>HVAC Systems</span></div>
+            <div class="industry-tile reveal"><span>Industrial Refrigeration</span></div>
+            <div class="industry-tile reveal"><span>Iron & Metal Industries</span></div>
+            <div class="industry-tile reveal"><span>Oil & Gas Production</span></div>
+            <div class="industry-tile reveal"><span>Paper & Cardboard</span></div>
+            <div class="industry-tile reveal"><span>Petrochemicals</span></div>
+            <div class="industry-tile reveal"><span>Power (Engine, Thermal)</span></div>
+            <div class="industry-tile reveal"><span>Process Industries</span></div>
+            <div class="industry-tile reveal"><span>Renewable Energy</span></div>
+            <div class="industry-tile reveal"><span>Steel Production</span></div>
+            <div class="industry-tile reveal"><span>Waste Treatment</span></div>
         </div>
-        <div class="vm-card tilt-element">
-            <div class="vm-icon">🎯</div>
-            <h2>Our Mission</h2>
-            <p>
-                "To empower Australian industries with world-class engineering solutions—from strategic design to 
-                precision execution—ensuring quality, safety, and reliability at every milestone."
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
 
+    <style>
+        .industry-grid-section { padding: 4rem 10%; background: var(--primary-light); }
+        .industry-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .industry-tile {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            cursor: default;
+        }
+        .industry-tile:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            color: var(--accent);
+        }
+    </style>
 
-
-<!-- ================= IMAGE + TEXT ================= -->
-
-<section class="about-image-section reveal-left">
-    <div class="about-image-left">
-        <img src="about2.webp" alt="Engineering Excellence">
-    </div>
-    <div class="about-image-right">
-        <h2>Engineering Excellence across Australia</h2>
-        <p>
-            At Brigantine Engineering, we leverage decades of international expertise to provide reliable, 
-            high-performance solutions for the most complex industrial challenges in the Australian market.
-        </p>
-        <ul class="about-features">
-            <li>✔ Industry-leading technical expertise</li>
-            <li>✔ Proven track record across diverse industrial sites</li>
-            <li>✔ End-to-end solutions from design to execution</li>
-            <li>✔ Unwavering commitment to Australian safety standards</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:2rem;">Contact Us</a>
-    </div>
-</section>
-
-
-
-<!-- ================= TEAM ================= -->
-
-<section class="team-section reveal">
-    <h2 class="section-title">Our Australian Leadership</h2>
-    <div class="team-grid">
-        <div class="team-card tilt-element">
-            <div class="team-avatar">DK</div>
-            <h3>Daniel Kovacs</h3>
-            <p>Chief Mechanical Engineer</p>
-        </div>
-        <div class="team-card tilt-element">
-            <div class="team-avatar">MS</div>
-            <h3>Markus Stein</h3>
-            <p>Lead Maintenance Specialist</p>
-        </div>
-        <div class="team-card tilt-element">
-            <div class="team-avatar">RH</div>
-            <h3>Robert Hale</h3>
-            <p>Site Operations Supervisor</p>
-        </div>
-        <div class="team-card tilt-element">
-            <div class="team-avatar">JR</div>
-            <h3>Jonathan Reed</h3>
-            <p>Process Systems Engineer</p>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- ================= CTA ================= -->
-
-<section class="about-cta reveal">
-    <div style="text-align:center;">
-        <h2>Build Better. Operate Smarter. Grow Faster.</h2>
-        <p>Expert engineering support tailored for the Australian industrial landscape. Reach out today to optimize your operations.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:2rem;">Contact Us</a>
-    </div>
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="site-footer">
+    <!-- ================= FOOTER ================= -->
+    <!-- Reusing footer from index.html concept -->
+    <footer class="site-footer">
     <!-- ===== FOOTER TOP : PRODUCTS ===== -->
     <div class="footer-products-row">
         <!-- Plate Heat Exchangers -->
@@ -321,25 +272,7 @@
     </div>
 </footer>
 
-
-
-<!-- ================= WHATSAPP ================= -->
-
-<a href="https://wa.me/8778589938"
-   class="whatsapp-float"
-   target="_blank">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-         alt="WhatsApp">
-
-</a>
-
-
-
-<!-- ================= SCRIPT ================= -->
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
 

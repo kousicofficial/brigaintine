@@ -4,7 +4,101 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.querySelector("#hero-canvas");
-    if (!canvas) return;
+    if (canvas) {
+        initThreeHero(canvas);
+    }
+
+    /* ================= HAMBURGER ================= */
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+            document.body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "auto";
+        });
+    }
+
+    /* ================= DROPDOWN (MOBILE SUPPORT) ================= */
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    const submenus = document.querySelectorAll(".dropdown-menu > li");
+
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector("a");
+        if (toggle) {
+            toggle.addEventListener("click", (e) => {
+                if (window.innerWidth < 1024) {
+                    e.preventDefault();
+                    dropdown.classList.toggle("active-mobile");
+                }
+            });
+        }
+    });
+
+    submenus.forEach(item => {
+        const submenuToggle = item.querySelector("a");
+        const nestedMenu = item.querySelector(".dropdown-submenu");
+        if (nestedMenu && submenuToggle) {
+            submenuToggle.addEventListener("click", (e) => {
+                if (window.innerWidth < 1024) {
+                    e.preventDefault();
+                    item.classList.toggle("active-mobile-submenu");
+                }
+            });
+        }
+    });
+
+    /* Close menu on click */
+    document.querySelectorAll(".nav-links a:not([href='#'])").forEach(link => {
+        link.addEventListener("click", () => {
+            if (hamburger) hamburger.classList.remove("active");
+            if (navLinks) navLinks.classList.remove("active");
+            document.body.style.overflow = "auto";
+            document.querySelectorAll(".active-mobile, .active-mobile-submenu").forEach(el => {
+                el.classList.remove("active-mobile", "active-mobile-submenu");
+            });
+        });
+    });
+
+    /* ================= SCROLL ANIMATION ================= */
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section, .site-footer, .reveal").forEach(el => observer.observe(el));
+
+    /* ================= 3D TILT EFFECT ================= */
+    const tiltElements = document.querySelectorAll('.tilt-element');
+    
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * 10;
+            const rotateY = ((x - centerX) / centerX) * -10;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+    });
+});
+
+/* --- Three.js Initialization Function --- */
+function initThreeHero(canvas) {
+    if (!window.THREE) return;
 
     // SCENE SETUP
     const scene = new THREE.Scene();
@@ -36,9 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const particlesMaterial = new THREE.PointsMaterial({
         size: 0.015,
         vertexColors: false,
-        color: 0x00a8e8,
+        color: 0x00a8e8, // Brand Blue
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
         blending: THREE.AdditiveBlending
     });
 
@@ -74,45 +168,12 @@ document.addEventListener("DOMContentLoaded", () => {
         particlesMesh.rotation.y = elapsedTime * 0.05;
         
         // Mouse follow effect
-        particlesMesh.rotation.x += (mouseY * 0.1 - particlesMesh.rotation.x) * 0.05;
-        particlesMesh.rotation.y += (mouseX * 0.1 - particlesMesh.rotation.y) * 0.05;
+        particlesMesh.rotation.x += (mouseY * 0.05 - particlesMesh.rotation.x) * 0.05;
+        particlesMesh.rotation.y += (mouseX * 0.05 - particlesMesh.rotation.y) * 0.05;
 
         renderer.render(scene, camera);
         window.requestAnimationFrame(animate);
     };
 
     animate();
-
-
-    /* ================= HAMBURGER ================= */
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navLinks.classList.toggle("active");
-            document.body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "auto";
-        });
-    }
-
-    /* Close menu on click */
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            if (hamburger) hamburger.classList.remove("active");
-            if (navLinks) navLinks.classList.remove("active");
-            document.body.style.overflow = "auto";
-        });
-    });
-
-    /* ================= SCROLL ANIMATION ================= */
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll("section, .site-footer").forEach(el => observer.observe(el));
-});
+}

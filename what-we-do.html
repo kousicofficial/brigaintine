@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do | Brigantine Engineering Australia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== PAGE SCOPED STYLES ===== */
+        body{overflow-x:hidden}
+
+        /* ===== SCOPE SPLIT SECTION ===== */
+        .wwd-scope{background:var(--primary);padding:0;position:relative;overflow:hidden}
+        .wwd-scope::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,100,200,.07),transparent 60%);pointer-events:none}
+        .wwd-scope-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+
+        /* LEFT TEXT PANEL */
+        .wwd-text-panel{padding:60px 60px 60px 5%;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+        .wwd-text-panel::after{content:'';position:absolute;top:0;bottom:0;right:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.08),transparent)}
+        .wwd-eyebrow{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent,#3b82f6);font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:14px}
+        .wwd-section-title{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;color:#fff;font-family:'Outfit',sans-serif;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+        .wwd-section-title span{color:var(--accent,#3b82f6)}
+        .wwd-lead{font-size:.97rem;color:rgba(255,255,255,.55);line-height:1.75;font-family:'Outfit',sans-serif;margin-bottom:40px;max-width:480px}
+
+        .wwd-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .wwd-col-block{position:relative}
+        .wwd-col-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#3b82f6);font-family:'Outfit',sans-serif;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+        .wwd-col-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
+        .wwd-col-title{font-size:1rem;font-weight:700;color:#fff;font-family:'Outfit',sans-serif;margin-bottom:16px;cursor:default;transition:color .3s}
+        .wwd-col-title:hover{color:var(--accent,#3b82f6)}
+        .wwd-list{list-style:none;display:flex;flex-direction:column;gap:0}
+        .wwd-list li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.875rem;color:rgba(255,255,255,.6);font-family:'Outfit',sans-serif;transition:color .3s,padding-left .3s}
+        .wwd-list li:last-child{border-bottom:none}
+        .wwd-list li:hover{color:#fff;padding-left:6px}
+        .wwd-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent,#3b82f6);flex-shrink:0;opacity:.7}
+
+        /* RIGHT IMAGE PANEL */
+        .wwd-img-panel{position:relative;overflow:hidden}
+        .wwd-img-panel img{width:100%;height:100%;object-fit:cover;min-height:500px;display:block;transition:transform 1s ease}
+        .wwd-img-panel:hover img{transform:scale(1.04)}
+        .wwd-img-panel::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to right,#04080f 0%,transparent 30%)}
+        .wwd-img-panel::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(0,60,150,.25),transparent 60%)}
+
+        /* ===== ANGLED DIVIDER BETWEEN HERO AND SCOPE ===== */
+        .wwd-angle-top{background:#04080f}
+        .wwd-angle-top svg{display:block;width:100%}
+
+        /* ===== IMPACT SECTION (existing) redesigned ===== */
+        .wwd-impact{background:#fff;padding:60px 5%;position:relative}
+        .wwd-impact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
+        .wwd-impact-badge{display:inline-block;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--primary,#0a1628);background:rgba(10,22,40,.06);border:1px solid rgba(10,22,40,.1);border-radius:2px;padding:4px 12px;font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:18px}
+        .wwd-impact h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--primary,#0a1628);font-family:'Outfit',sans-serif;line-height:1.2;margin-bottom:16px;letter-spacing:-.01em}
+        .wwd-impact p{font-size:1rem;line-height:1.8;color:#4a5568;font-family:'Outfit',sans-serif;margin-bottom:14px}
+        .wwd-impact-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+        .wwd-stat{text-align:left}
+        .wwd-stat-val{font-size:1.9rem;font-weight:800;color:var(--primary,#0a1628);font-family:'Outfit',sans-serif;line-height:1}
+        .wwd-stat-label{font-size:.72rem;color:#718096;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;font-family:'Outfit',sans-serif}
+        .wwd-impact-img{border-radius:8px;overflow:hidden;position:relative}
+        .wwd-impact-img img{width:100%;height:360px;object-fit:cover;display:block;transition:transform .7s ease}
+        .wwd-impact-img:hover img{transform:scale(1.04)}
+
+        /* ===== REVEAL ===== */
+        .wwd-r{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+        .wwd-r.v{opacity:1;transform:none}
+        .wwd-rl{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+        .wwd-rl.v{opacity:1;transform:none}
+        .wwd-rr{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+        .wwd-rr.v{opacity:1;transform:none}
+
+        @media(max-width:920px){
+            .wwd-scope-inner{grid-template-columns:1fr}
+            .wwd-img-panel{height:320px}
+            .wwd-img-panel img{min-height:320px}
+            .wwd-text-panel{padding:60px 5%}
+            .wwd-text-panel::after{display:none}
+            .wwd-impact-inner{grid-template-columns:1fr;gap:40px}
+        }
+        @media(max-width:600px){.wwd-cols{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="logo-container">
+            <img src="logo-desk-scaled.jpg" alt="Brigantine Engineering Logo">
+        </div>
+        <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-dropdown">
+                <a href="about.html">About Us <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-company.html">About Company</a></li>
+                    <li><a href="values.html">Values</a></li>
+                    <li><a href="focussed-industry.html">Focused Industry</a></li>
+                    <li><a href="what-we-do.html">What We Do</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="#">Products <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Plate Heat Exchangers <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="industrial-line.html">Industrial Line</a></li>
+                            <li><a href="industrial-semi-welded-line.html">Industrial Semi Welded Line</a></li>
+                            <li><a href="m-line.html">M Line</a></li>
+                            <li><a href="wide-gap.html">Wide Gap</a></li>
+                            <li><a href="brazed-plate-heat-exchangers.html">Brazed PHE</a></li>
+                            <li><a href="fusion-bonded-plate-heat-exchangers.html">Fusion Bonded PHE</a></li>
+                            <li><a href="alfacond.html">Alfacond</a></li>
+                            <li><a href="alfavap.html">Alfavap</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Welded Heat Exchangers <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="welded-plate-and-block-heat-exchanger.html">Welded Plate &amp; Block</a></li>
+                            <li><a href="welded-plate-and-shell-heat-exchanger.html">Packinox</a></li>
+                            <li><a href="duroshell.html">Duroshell</a></li>
+                            <li><a href="ziepack.html">Ziepack</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Disk Stack Separators <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="mab-separator.html">MAB Separators</a></li>
+                            <li><a href="mmb.html">MMB</a></li>
+                            <li><a href="mopx.html">MOPX</a></li>
+                            <li><a href="alfie-500.html">Alfie 500</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Decanters <span class="submenu-arrow">▶</span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="aldec.html">Aldec</a></li>
+                            <li><a href="lynx.html">Lynx</a></li>
+                            <li><a href="p1.html">P1</a></li>
+                            <li><a href="p2.html">P2</a></li>
+                            <li><a href="p3.html">P3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-dropdown">
+                <a href="services.html">Services &amp; Support <span class="dropdown-arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="gasketed-plate-heat-exchanger-services.html">Gasketed PHE Services</a></li>
+                    <li><a href="compabloc-welded-phe-services.html">Compabloc Welded PHE</a></li>
+                    <li><a href="decanter-centrifuge-service.html">Decanter Centrifuge Service</a></li>
+                    <li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting &amp; Repair</a></li>
+                    <li><a href="reconditioning-of-decanters.html">Reconditioning of Decanters</a></li>
+                    <li><a href="high-speed-separators.html">High-Speed Separators</a></li>
+                </ul>
+            </li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="energy-hunter.html">Energy Hunter</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+</nav>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <section class="hero-industrial">
+        <div class="hero-layout-grid">
+            <span class="hero-tag">About Us</span>
+            <h1 class="hero-title-bold">
+                <span><i>What</i></span>
+                <span class="accent"><i>We Do</i></span>
+            </h1>
+            <p class="hero-description-layered">
+                Comprehensive engineering and technical support.
+                Maintenance, reconditioning, and system optimization.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ===== OUR IMPACT + EXPERTISE / SCOPE SPLIT ===== -->
+    <section class="wwd-scope">
+        <div class="wwd-scope-inner">
+            <!-- TEXT LEFT -->
+            <div class="wwd-text-panel wwd-rl">
+                <p class="wwd-eyebrow">// What We Deliver</p>
+                <h2 class="wwd-section-title">Our Impact on <span>Australian Industry</span></h2>
+                <p class="wwd-lead">Brigantine provides a wide spectrum of technical services, including onsite troubleshooting, full reconditioning of decanters and separators, and custom-engineered heat exchanger solutions. We are dedicated to maximizing uptime and process efficiency for our clients.</p>
+
+                <div class="wwd-cols">
+                    <!-- EXPERTISE -->
+                    <div class="wwd-col-block">
+                        <div class="wwd-col-label">Expertise</div>
+                        <ul class="wwd-list">
+                            <li>Design</li>
+                            <li>Detailed Engineering</li>
+                            <li>Project Management</li>
+                            <li>Erection &amp; Commissioning</li>
+                            <li>O&amp;M Management</li>
+                            <li>Performance Guaranty</li>
+                            <li>On Site Training</li>
+                        </ul>
+                    </div>
+                    <!-- SCOPE OF SUPPLY -->
+                    <div class="wwd-col-block">
+                        <div class="wwd-col-label">Scope of Supply</div>
+                        <ul class="wwd-list">
+                            <li>Heat Exchangers</li>
+                            <li>High Speed Separators</li>
+                            <li>Centrifuge</li>
+                            <li>Decanters</li>
+                            <li>Air Compressor</li>
+                            <li>Air Dryer</li>
+                            <li>Air Receiver</li>
+                            <li>Air Line Purification</li>
+                            <li>NSD Products</li>
+                            <li>Process Heating &amp; Cooling</li>
+                            <li>Sustainability Solutions</li>
+                            <li>Power Generation</li>
+                            <li>Process Instrumentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- IMAGE RIGHT -->
+            <div class="wwd-img-panel wwd-rr">
+                <img src="service-scope.jpg" alt="Brigantine Engineering Service Scope - Australia">
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM ANGLE BACK TO WHITE -->
+    <div style="background:#fff">
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="fill:#04080f;display:block;width:100%;height:48px">
+            <path d="M0,0 L1440,0 L0,48 Z"/>
+        </svg>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="footer-products-row">
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> PLATE HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li>Industrial Line</li><li>Industrial Semi Welded Line</li><li>M Line</li><li>Wide Gap</li><li>Brazed PHE</li><li>Fusion Bonded PHE</li><li>Alfacond</li><li>Alfavap</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> WELDED HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li><a href="compabloc.html">Compabloc</a></li><li><a href="packinox.html">Packinox</a></li><li><a href="duroshell.html">Duroshell</a></li><li><a href="ziepack.html">Ziepack</a></li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK SEPARATORS <span class="bracket">]</span></h4>
+                <ul><li>MAB Separators</li><li>MMB</li><li>MOPX</li><li>Alfa 500</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK MODELS <span class="bracket">]</span></h4>
+                <ul><li>Aldec</li><li>Lynx</li><li>P1</li><li>P2</li><li>P3</li></ul>
+            </div>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> CONTACT US <span class="bracket">]</span></h4>
+                <p>support@brigantine.com.au</p><p>+61 (0) 2 8000 0000</p><p>Matraville, NSW, Australia</p>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> QUICK LINKS <span class="bracket">]</span></h4>
+                <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="applications.html">Applications</a></li><li><a href="services.html">Service &amp; Support</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h4>
+                <ul><li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting</a></li><li><a href="reconditioning-of-decanters.html">Decanter Reconditioning</a></li><li><a href="high-speed-separators.html">High Speed Separators</a></li><li><a href="gasketed-plate-heat-exchanger-services.html">Heat Exchanger Services</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4><span class="bracket">[</span> SOCIAL MEDIA <span class="bracket">]</span></h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon facebook">f</a>
+                    <a href="#" class="social-icon twitter">t</a>
+                    <a href="#" class="social-icon youtube">y</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><div class="copyright">&copy; 2026 Brigantine Engineering Services Australia</div></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="https://wa.me/8778589938" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+    </a>
+    <script>
+        const wO = new IntersectionObserver(e => e.forEach(el => {
+            if(el.isIntersecting){el.target.classList.add('v');wO.unobserve(el.target)}
+        }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.wwd-r,.wwd-rl,.wwd-rr').forEach(e=>wO.observe(e));
+    </script>
+</body>
+</html>

@@ -1,205 +1,416 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plate Heat Exchanger Services | Brigantine Engineering</title>
-    <meta name="description" content="Professional cleaning, re-gasketing, and testing services for gasketed plate heat exchangers. Maximize efficiency and prevent leaks with our expert care.">
+    <title>Gasketed PHE Services | Brigantine Engineering Australia</title>
+    <meta name="description" content="Expert Gasketed Plate Heat Exchanger servicing in Australia. Brigantine Engineering delivers precision inspection, regasketing, cleaning, and performance restoration.">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="service-page.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--sp-accent:#00c2ff;--sp-accent2:#0057b8;--sp-dark:#020d1a;--sp-mid:#051829;--sp-card:#071f35;--sp-border:rgba(0,194,255,0.15);--sp-text:#b8d4ea}
+        *{box-sizing:border-box;margin:0;padding:0}
+        .sp-hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--sp-dark);overflow:hidden}
+        .sp-hero-bg{position:absolute;inset:0;background-image:url('gasketed_plate_heat_exchanger.webp');background-size:cover;background-position:center 30%;transform:scale(1.05);transition:transform 8s ease;filter:brightness(0.22) saturate(1.3)}
+        .sp-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,22,51,.95) 0%,rgba(0,87,184,.3) 60%,transparent 100%)}
+        .sp-hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(0,194,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,194,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+        .sp-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:140px 5% 80px;width:100%}
+        .sp-breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sp-accent);margin-bottom:28px;font-family:'Outfit',sans-serif}
+        .sp-breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s}
+        .sp-breadcrumb a:hover{color:var(--sp-accent)}
+        .sp-breadcrumb span{color:rgba(255,255,255,.3)}
+        .sp-hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(0,194,255,.08);border:1px solid rgba(0,194,255,.25);border-radius:4px;padding:6px 16px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sp-accent);margin-bottom:24px;font-family:'Outfit',sans-serif}
+        .sp-hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sp-accent);animation:hpulse 2s infinite}
+        @keyframes hpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+        .sp-hero-title{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.05;color:#fff;margin-bottom:24px;letter-spacing:-.02em}
+        .sp-hero-title .accent{color:var(--sp-accent)}
+        .sp-hero-title .line2{display:block;color:rgba(255,255,255,.85)}
+        .sp-hero-desc{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--sp-text);max-width:600px;line-height:1.75;margin-bottom:40px;font-family:'Outfit',sans-serif}
+        .sp-hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+        .sp-btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--sp-accent2);color:#fff;text-decoration:none;border-radius:4px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.05em;transition:all .35s ease;border:2px solid transparent}
+        .sp-btn-primary:hover{background:var(--sp-accent);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,194,255,.3)}
+        .sp-btn-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:transparent;color:#fff;text-decoration:none;border-radius:4px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.05em;transition:all .35s ease;border:2px solid rgba(255,255,255,.25)}
+        .sp-btn-outline:hover{border-color:var(--sp-accent);color:var(--sp-accent)}
+        .sp-hero-stats{display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;padding-top:40px;border-top:1px solid rgba(255,255,255,.08)}
+        .sp-stat{text-align:left}
+        .sp-stat-num{font-size:2.2rem;font-weight:800;color:var(--sp-accent);font-family:'Outfit',sans-serif;line-height:1}
+        .sp-stat-label{font-size:.8rem;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase;margin-top:4px;font-family:'Outfit',sans-serif}
+        .sp-overview{background:var(--sp-mid);padding:90px 5%}
+        .sp-overview-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .sp-section-label{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sp-accent);font-family:'Outfit',sans-serif;margin-bottom:16px;font-weight:600}
+        .sp-section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:#fff;font-family:'Outfit',sans-serif;line-height:1.2;margin-bottom:24px;letter-spacing:-.01em}
+        .sp-section-title span{color:var(--sp-accent)}
+        .sp-section-text{font-size:1rem;line-height:1.8;color:var(--sp-text);font-family:'Outfit',sans-serif;margin-bottom:20px}
+        .sp-overview-img{position:relative;border-radius:8px;overflow:hidden}
+        .sp-overview-img img{width:100%;height:420px;object-fit:cover;display:block;border-radius:8px;transition:transform .6s ease}
+        .sp-overview-img:hover img{transform:scale(1.04)}
+        .sp-overview-img::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(0,87,184,.25),transparent);border-radius:8px;pointer-events:none}
+        .sp-img-badge{position:absolute;bottom:20px;left:20px;z-index:2;background:rgba(0,22,51,.9);border:1px solid var(--sp-border);border-radius:4px;padding:10px 16px;font-family:'Outfit',sans-serif}
+        .sp-img-badge strong{display:block;color:var(--sp-accent);font-size:1.2rem;font-weight:700}
+        .sp-img-badge span{color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:.1em}
+        .sp-capabilities{background:var(--sp-dark);padding:90px 5%;position:relative}
+        .sp-capabilities::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,87,184,.08) 0%,transparent 70%);pointer-events:none}
+        .sp-capabilities-inner{max-width:1200px;margin:0 auto}
+        .sp-capabilities-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px}
+        .sp-capabilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--sp-border)}
+        .sp-cap-item{background:var(--sp-card);padding:36px 28px;transition:all .35s ease;position:relative;overflow:hidden}
+        .sp-cap-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp-accent2),var(--sp-accent));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+        .sp-cap-item:hover::before{transform:scaleX(1)}
+        .sp-cap-item:hover{background:#0a2840;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+        .sp-cap-num{font-size:.7rem;color:var(--sp-accent);letter-spacing:.2em;font-family:'Outfit',sans-serif;margin-bottom:16px;font-weight:600}
+        .sp-cap-icon{font-size:2rem;margin-bottom:12px}
+        .sp-cap-title{font-size:1.05rem;font-weight:700;color:#fff;font-family:'Outfit',sans-serif;margin-bottom:10px}
+        .sp-cap-text{font-size:.9rem;color:var(--sp-text);line-height:1.65;font-family:'Outfit',sans-serif}
+        .sp-benefits{background:var(--sp-mid);padding:100px 5%;position:relative;overflow:hidden}
+        .sp-benefits::after{content:'';position:absolute;top:0;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,87,184,.1),transparent 70%);pointer-events:none}
+        .sp-benefits-inner{max-width:1200px;margin:0 auto}
+        .sp-benefits-header{text-align:center;margin-bottom:72px}
+        .sp-benefits-list{display:flex;flex-direction:column;gap:80px}
+        .sp-benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .sp-benefit-row.reversed{direction:rtl}
+        .sp-benefit-row.reversed>*{direction:ltr}
+        .sp-benefit-visual{position:relative;padding:32px;background:linear-gradient(135deg,var(--sp-card),rgba(0,87,184,.1));border:1px solid var(--sp-border);border-radius:8px}
+        .sp-benefit-icon-large{font-size:4rem;margin-bottom:16px;display:block}
+        .sp-benefit-detail{list-style:none;padding:0}
+        .sp-benefit-detail li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);color:var(--sp-text);font-size:.9rem;font-family:'Outfit',sans-serif}
+        .sp-benefit-detail li::before{content:'>';color:var(--sp-accent);flex-shrink:0;margin-top:2px}
+        .sp-benefit-text h3{font-size:1.6rem;font-weight:700;color:#fff;font-family:'Outfit',sans-serif;margin-bottom:16px;letter-spacing:-.01em}
+        .sp-benefit-text p{color:var(--sp-text);line-height:1.8;font-family:'Outfit',sans-serif;font-size:.98rem;margin-bottom:16px}
+        .sp-process{background:var(--sp-dark);padding:100px 5%;position:relative}
+        .sp-process-inner{max-width:1200px;margin:0 auto}
+        .sp-process-header{text-align:center;margin-bottom:72px}
+        .sp-process-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+        .sp-process-track::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--sp-accent2),var(--sp-accent),var(--sp-accent2),transparent);z-index:0}
+        .sp-process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:16px 12px;position:relative;z-index:1}
+        .sp-step-node{width:80px;height:80px;border-radius:50%;background:var(--sp-card);border:2px solid var(--sp-accent2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;transition:all .35s ease;cursor:default}
+        .sp-process-step:hover .sp-step-node{border-color:var(--sp-accent);background:rgba(0,194,255,.1);box-shadow:0 0 30px rgba(0,194,255,.3);transform:scale(1.1)}
+        .sp-step-num{font-size:.65rem;letter-spacing:.2em;color:var(--sp-accent);font-family:'Outfit',sans-serif;font-weight:600;margin-bottom:6px}
+        .sp-step-title{font-size:.9rem;font-weight:700;color:#fff;font-family:'Outfit',sans-serif;margin-bottom:8px}
+        .sp-step-text{font-size:.8rem;color:var(--sp-text);line-height:1.55;font-family:'Outfit',sans-serif}
+        .sp-cta{position:relative;padding:100px 5%;background:var(--sp-mid);overflow:hidden}
+        .sp-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(0,87,184,.2),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(0,194,255,.08),transparent 60%)}
+        .sp-cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+        .sp-cta h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;font-family:'Outfit',sans-serif;line-height:1.15;margin-bottom:20px;letter-spacing:-.02em}
+        .sp-cta h2 span{color:var(--sp-accent)}
+        .sp-cta p{font-size:1.1rem;color:var(--sp-text);line-height:1.75;margin-bottom:40px;font-family:'Outfit',sans-serif}
+        .sp-cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+        .sp-reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+        .sp-reveal.visible{opacity:1;transform:translateY(0)}
+        .sp-reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+        .sp-reveal-left.visible{opacity:1;transform:translateX(0)}
+        .sp-reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+        .sp-reveal-right.visible{opacity:1;transform:translateX(0)}
+        @media(max-width:900px){.sp-overview-inner,.sp-benefit-row{grid-template-columns:1fr;gap:40px}.sp-benefit-row.reversed{direction:ltr}.sp-capabilities-grid{grid-template-columns:1fr 1fr}.sp-capabilities-header{grid-template-columns:1fr;gap:20px}.sp-process-track{grid-template-columns:1fr 1fr;gap:40px}.sp-process-track::before{display:none}.sp-hero-stats{gap:24px}}
+        @media(max-width:600px){.sp-capabilities-grid{grid-template-columns:1fr}.sp-process-track{grid-template-columns:1fr}}
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="logo-desk-scaled.jpg" alt="Brigantine Engineering Logo">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li class="nav-dropdown">
-                    <a href="services.html" class="active">Services <span class="dropdown-arrow">▾</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting &amp; Repair</a></li>
-                        <li><a href="reconditioning-of-decanters.html">Reconditioning of Decanters</a></li>
-                        <li><a href="high-speed-separators.html">High-Speed Separators</a></li>
-                        <li><a href="gasketed-plate-heat-exchanger-services.html">Gasketed Plate Heat Exchanger Services</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="logo-container"><img src="logo-desk-scaled.jpg" alt="Brigantine Engineering Logo"></div>
+        <nav><ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-dropdown"><a href="about.html">About Us <span class="dropdown-arrow">v</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-company.html">About Company</a></li>
+                    <li><a href="values.html">Values</a></li>
+                    <li><a href="focussed-industry.html">Focussed Industry</a></li>
+                    <li><a href="what-we-do.html">What We Do</a></li>
+                </ul>
+            </li>
+            <li class="nav-dropdown"><a href="#">Products <span class="dropdown-arrow">v</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Plate Heat Exchangers <span class="submenu-arrow">></span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="industrial-line.html">Industrial Line</a></li>
+                            <li><a href="industrial-semi-welded-line.html">Industrial Semi Welded Line</a></li>
+                            <li><a href="m-line.html">M Line</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Welded Heat Exchangers <span class="submenu-arrow">></span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="compabloc.html">Compabloc</a></li>
+                            <li><a href="packinox.html">Packinox</a></li>
+                            <li><a href="duroshell.html">Duroshell</a></li>
+                            <li><a href="ziepack.html">Ziepack</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Disk Stack Separators <span class="submenu-arrow">></span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="mab-separator.html">MAB Separators</a></li>
+                            <li><a href="mmb.html">MMB</a></li>
+                            <li><a href="mopx.html">MOPX</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Decanters <span class="submenu-arrow">></span></a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="aldec.html">Aldec</a></li>
+                            <li><a href="lynx.html">Lynx</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-dropdown"><a href="services.html">Services &amp; Support <span class="dropdown-arrow">v</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="gasketed-plate-heat-exchanger-services.html">Gasketed PHE Services</a></li>
+                    <li><a href="compabloc-welded-phe-services.html">Compabloc Welded PHE</a></li>
+                    <li><a href="decanter-centrifuge-service.html">Decanter Centrifuge Service</a></li>
+                    <li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting &amp; Repair</a></li>
+                    <li><a href="reconditioning-of-decanters.html">Reconditioning of Decanters</a></li>
+                    <li><a href="high-speed-separators.html">High-Speed Separators</a></li>
+                </ul>
+            </li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="energy-hunter.html">Energy Hunter</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul></nav>
+        <div class="hamburger"><span></span><span></span><span></span></div>
     </header>
 
-    <section class="hero-sub hero-3d-bg" style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--white); position: relative;">
-        <canvas id="hero-canvas"></canvas>
-        <h1 style="position: relative; z-index: 2;">Plate Heat Exchanger Services</h1>
+    <section class="sp-hero">
+        <div class="sp-hero-bg"></div>
+        <div class="sp-hero-overlay"></div>
+        <div class="sp-hero-lines"></div>
+        <div class="sp-hero-content">
+            <div class="sp-hero-tag">Heat Transfer Excellence &middot; Australia</div>
+            <h1 class="sp-hero-title">
+                Gasketed <span class="accent">Plate Heat</span>
+                <span class="line2">Exchanger Services</span>
+            </h1>
+            <p class="sp-hero-desc">Precision servicing, regasketing, and full performance restoration of gasketed plate heat exchangers across Australia's most demanding industrial operations.</p>
+            <div class="sp-hero-actions">
+                <a href="contact.html" class="sp-btn-primary">Request Service &rsaquo;</a>
+                <a href="services.html" class="sp-btn-outline">All Services</a>
+            </div>
+            <div class="sp-hero-stats">
+                <div class="sp-stat"><div class="sp-stat-num">20+</div><div class="sp-stat-label">Years Experience</div></div>
+                <div class="sp-stat"><div class="sp-stat-num">500+</div><div class="sp-stat-label">Units Serviced</div></div>
+                <div class="sp-stat"><div class="sp-stat-num">98%</div><div class="sp-stat-label">Client Retention</div></div>
+                <div class="sp-stat"><div class="sp-stat-num">AU</div><div class="sp-stat-label">Nationwide Coverage</div></div>
+            </div>
+        </div>
     </section>
 
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <div style="background:var(--sp-dark)">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="fill:#051829;display:block;width:100%">
+            <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z"/>
+        </svg>
+    </div>
 
-    <!-- ===== INTRO SPLIT SECTION ===== -->
-    <section class="sp-hero" style="min-height: auto;">
-      <div class="sp-hero-content">
-        <span class="sp-badge">Specialist Service</span>
-        <h1 style="font-size: 2.4rem;">Gasketed Plate Heat Exchanger Services</h1>
-        <p>
-          We provide complete service solutions for Gasketed Plate Heat
-          Exchangers to ensure efficient heat transfer, leak-free operation, and
-          extended equipment life. Our services are suitable for HVAC, food
-          &amp; beverage, chemical, oil &amp; gas, pharmaceutical, and
-          industrial process applications.
-        </p>
-        <div class="sp-hero-checklist">
-          <div class="sp-check-item">
-            <span class="sp-check-icon">✔</span>
-            <span>Comprehensive inspection, cleaning &amp; re-gasketing</span>
-          </div>
-          <div class="sp-check-item">
-            <span class="sp-check-icon">✔</span>
-            <span>Leak &amp; pressure testing to confirm safe operation</span>
-          </div>
-          <div class="sp-check-item">
-            <span class="sp-check-icon">✔</span>
-            <span>Suitable for all major PHE brands and industries</span>
-          </div>
+    <section class="sp-overview">
+        <div class="sp-overview-inner">
+            <div class="sp-overview-text sp-reveal-left">
+                <p class="sp-section-label">// Service Overview</p>
+                <h2 class="sp-section-title">Expert <span>PHE Servicing</span> for Continuous Industrial Operations</h2>
+                <p class="sp-section-text">Brigantine Engineering provides comprehensive gasketed plate heat exchanger maintenance and restoration services across Australian industrial facilities. Our certified technicians apply exacting standards to every unit, ensuring thermal efficiency, leak-free performance, and extended asset life.</p>
+                <p class="sp-section-text">Whether performing a routine inspection, emergency regasketing, or a full overhaul, we apply factory-level precision with locally delivered service responsiveness. All work complies with Australian engineering standards and OEM specifications.</p>
+                <a href="contact.html" class="sp-btn-primary" style="margin-top:8px">Get a Service Quote &rsaquo;</a>
+            </div>
+            <div class="sp-overview-img sp-reveal-right">
+                <img src="gasketed_plate_heat_exchanger.webp" alt="Gasketed Plate Heat Exchanger - Brigantine Engineering Australia">
+                <div class="sp-img-badge">
+                    <strong>ISO Certified</strong>
+                    <span>Service Quality</span>
+                </div>
+            </div>
         </div>
-        <div class="sp-hero-btns">
-          <a href="contact.html" class="sp-btn-primary">Request Service</a>
-          <a href="services.html" class="sp-btn-outline">Learn More</a>
-        </div>
-      </div>
-      <div class="sp-hero-image">
-        <img src="gasketed_plate_heat_exchanger.webp" alt="Gasketed Plate Heat Exchanger Services" />
-      </div>
     </section>
 
-    <!-- ===== OUR SERVICES INCLUDE ===== -->
-    <section class="sp-services">
-      <div class="sp-section-header">
-        <h2>Our Services Include</h2>
-        <p>Comprehensive solutions for your heat exchanger needs</p>
-      </div>
-      <div class="sp-services-grid">
+    <div style="background:var(--sp-mid)">
+        <div style="height:60px;background:var(--sp-dark);clip-path:polygon(0 0,100% 0,100% 100%,0 0)"></div>
+    </div>
 
-        <div class="sp-service-card">
-          <div class="sp-service-icon">🔍</div>
-          <h3>Inspection &amp; Performance Evaluation</h3>
-          <p>Checking plates, gaskets, and flow performance to identify wear, fouling, leaks, and efficiency loss before they cause costly downtime.</p>
+    <section class="sp-capabilities">
+        <div class="sp-capabilities-inner">
+            <div class="sp-capabilities-header sp-reveal">
+                <div>
+                    <p class="sp-section-label">// What We Deliver</p>
+                    <h2 class="sp-section-title">Service <span>Capabilities</span></h2>
+                </div>
+                <p style="color:var(--sp-text);font-family:'Outfit',sans-serif;font-size:1rem;line-height:1.7">Our full-spectrum PHE service capabilities address every stage of your equipment lifecycle - from preventive maintenance through to emergency restoration.</p>
+            </div>
+            <div class="sp-capabilities-grid sp-reveal">
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">01</div>
+                    <div class="sp-cap-icon">&#128300;</div>
+                    <div class="sp-cap-title">Precision Inspection and Assessment</div>
+                    <p class="sp-cap-text">Complete dimensional and integrity inspection of plates, gaskets, frame components, and connection ports with detailed photographic condition reports.</p>
+                </div>
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">02</div>
+                    <div class="sp-cap-icon">&#128260;</div>
+                    <div class="sp-cap-title">Regasketing and Gasket Supply</div>
+                    <p class="sp-cap-text">Replacement of worn or failed gaskets using OEM-approved elastomers. Correct gasket grade selection for your specific media, temperature, and pressure conditions.</p>
+                </div>
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">03</div>
+                    <div class="sp-cap-icon">&#129514;</div>
+                    <div class="sp-cap-title">Chemical and Mechanical Cleaning</div>
+                    <p class="sp-cap-text">CIP assessment plus manual chemical cleaning and mechanical descaling of plates to restore full thermal transfer efficiency across all operating zones.</p>
+                </div>
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">04</div>
+                    <div class="sp-cap-icon">&#128208;</div>
+                    <div class="sp-cap-title">Plate Straightening and Refurbishment</div>
+                    <p class="sp-cap-text">Correction of deformed or damaged plates to OEM specifications, eliminating cross-contamination pathways through systematic plate integrity restoration.</p>
+                </div>
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">05</div>
+                    <div class="sp-cap-icon">&#9881;&#65039;</div>
+                    <div class="sp-cap-title">Hydraulic Pressure Testing</div>
+                    <p class="sp-cap-text">Full hydrostatic pressure testing post-assembly to confirm leak-free operation before recommissioning. Certificates issued for all tested units.</p>
+                </div>
+                <div class="sp-cap-item">
+                    <div class="sp-cap-num">06</div>
+                    <div class="sp-cap-icon">&#128202;</div>
+                    <div class="sp-cap-title">Performance Optimisation Audit</div>
+                    <p class="sp-cap-text">Thermal performance benchmarking against original design parameters with plate arrangement optimisation to maximise heat transfer effectiveness.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="sp-service-card">
-          <div class="sp-service-icon">🧹</div>
-          <h3>Plate Cleaning</h3>
-          <p>Chemical, manual, and high-pressure cleaning to remove scale, sludge, and deposits from plates — fully restoring heat transfer efficiency.</p>
-        </div>
-
-        <div class="sp-service-card">
-          <div class="sp-service-icon">🔩</div>
-          <h3>Gasket Replacement &amp; Re-gasketing</h3>
-          <p>Replacing damaged or aged gaskets to ensure proper sealing and prevent leakage, using the correct material grade for your process fluid.</p>
-        </div>
-
-        <div class="sp-service-card">
-          <div class="sp-service-icon">🛠️</div>
-          <h3>Plate Replacement &amp; Reconditioning</h3>
-          <p>Repairing or replacing worn or damaged plates to extend equipment life and restore full heat transfer capacity to your system.</p>
-        </div>
-
-        <div class="sp-service-card">
-          <div class="sp-service-icon">📊</div>
-          <h3>Leak Testing &amp; Pressure Testing</h3>
-          <p>Testing the exchanger under pressure to verify leak-free and safe operation before returning to service — with full certification provided.</p>
-        </div>
-
-        <div class="sp-service-card">
-          <div class="sp-service-icon">⚡</div>
-          <h3>Troubleshooting &amp; Efficiency Improvement</h3>
-          <p>Identifying operational issues such as poor temperature approach, cross-contamination, or pressure drop — and optimizing for maximum efficiency.</p>
-        </div>
-
-      </div>
     </section>
 
-    <!-- ===== WHY CHOOSE BRIGANTINE ===== -->
-    <section class="sp-why">
-      <div class="sp-section-header" style="margin-bottom: 3rem;">
-        <h2 style="color: #4fc3f7;">Why You Choose Brigantine?</h2>
-        <p style="color: rgba(255,255,255,0.65);">What sets us apart from the competition</p>
-      </div>
-      <div class="sp-why-grid">
+    <div style="background:var(--sp-dark)">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="fill:#051829;display:block;width:100%">
+            <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z"/>
+        </svg>
+    </div>
 
-        <div class="sp-why-card">
-          <div class="sp-why-icon">🏭</div>
-          <h3>Industry-Wide Experience</h3>
-          <p>We service PHEs across HVAC, food &amp; beverage, chemical, oil &amp; gas, pharmaceutical, and general industrial applications with proven expertise.</p>
+    <section class="sp-benefits">
+        <div class="sp-benefits-inner">
+            <div class="sp-benefits-header sp-reveal">
+                <p class="sp-section-label">// Why Choose Brigantine</p>
+                <h2 class="sp-section-title">The <span>Brigantine</span> Advantage</h2>
+            </div>
+            <div class="sp-benefits-list">
+                <div class="sp-benefit-row sp-reveal">
+                    <div class="sp-benefit-visual">
+                        <span class="sp-benefit-icon-large">&#127981;</span>
+                        <h3 style="color:#fff;font-family:'Outfit',sans-serif;font-size:1.1rem;margin-bottom:12px">Australian Industrial Focus</h3>
+                        <ul class="sp-benefit-detail">
+                            <li>Authorised Alfa Laval service partner</li>
+                            <li>Nationwide field service coverage</li>
+                            <li>On-site and workshop servicing available</li>
+                            <li>Same-day emergency response protocols</li>
+                        </ul>
+                    </div>
+                    <div class="sp-benefit-text">
+                        <h3>Reducing Downtime. Maximising Efficiency.</h3>
+                        <p>When your PHE underperforms, the cascading effects across your process plant can be severe. Brigantine Engineering's rapid response capability means we mobilise our service team to your Australian facility with minimal delay, conducting on-site disassembly, inspection, and regasketing to restore operations fast.</p>
+                        <p>Our technicians are fully trained and certified, operating with structured service protocols that ensure consistent, high-quality outcomes on every engagement in food processing, chemical, pharmaceutical, or marine applications.</p>
+                    </div>
+                </div>
+                <div class="sp-benefit-row reversed sp-reveal">
+                    <div class="sp-benefit-visual">
+                        <span class="sp-benefit-icon-large">&#128295;</span>
+                        <h3 style="color:#fff;font-family:'Outfit',sans-serif;font-size:1.1rem;margin-bottom:12px">Technical Depth</h3>
+                        <ul class="sp-benefit-detail">
+                            <li>OEM gasket and plate inventory</li>
+                            <li>Multi-brand PHE service capability</li>
+                            <li>Full measurement traceability</li>
+                            <li>Service documentation and reports</li>
+                        </ul>
+                    </div>
+                    <div class="sp-benefit-text">
+                        <h3>OEM-Level Precision. Field-Level Flexibility.</h3>
+                        <p>Brigantine Engineering maintains a comprehensive spare parts inventory for leading PHE brands, allowing swift component replacement without extended procurement delays. Our engineers apply OEM-precise torquing sequences and gasket seating procedures to every unit.</p>
+                        <p>We service Alfa Laval, APV, Sondex, GEA, and other major gasketed plate heat exchanger brands, delivering consistent quality regardless of make or model anywhere in Australia.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="sp-why-card">
-          <div class="sp-why-icon">🔬</div>
-          <h3>All Major Brands Supported</h3>
-          <p>Our team works with all major heat exchanger manufacturers including Alfa Laval, GEA, APV, SPX, Tranter, and more — with OEM-compatible parts.</p>
-        </div>
-
-        <div class="sp-why-card">
-          <div class="sp-why-icon">📋</div>
-          <h3>Full Service Documentation</h3>
-          <p>Every service is supported by comprehensive documentation including inspection reports, pressure test certificates, and parts replacement records.</p>
-        </div>
-
-        <div class="sp-why-card">
-          <div class="sp-why-icon">🚀</div>
-          <h3>Fast &amp; Reliable Turnaround</h3>
-          <p>We understand operational pressures. Our streamlined workshop process ensures rapid turnaround with minimum impact on your production schedule.</p>
-        </div>
-
-      </div>
     </section>
 
-    <!-- ===== CTA BANNER ===== -->
+    <section class="sp-process">
+        <div class="sp-process-inner">
+            <div class="sp-process-header sp-reveal">
+                <p class="sp-section-label">// Service Workflow</p>
+                <h2 class="sp-section-title">Our <span>Service Process</span></h2>
+                <p style="color:var(--sp-text);font-family:'Outfit',sans-serif;max-width:560px;margin:12px auto 0;font-size:.98rem;line-height:1.7">A structured, quality-controlled workflow ensuring your PHE is returned to full specification every time.</p>
+            </div>
+            <div class="sp-process-track sp-reveal">
+                <div class="sp-process-step">
+                    <div class="sp-step-node">&#128203;</div>
+                    <div class="sp-step-num">STEP 01</div>
+                    <div class="sp-step-title">Site Assessment</div>
+                    <p class="sp-step-text">Initial consultation, unit history review, and on-site condition assessment.</p>
+                </div>
+                <div class="sp-process-step">
+                    <div class="sp-step-node">&#128270;</div>
+                    <div class="sp-step-num">STEP 02</div>
+                    <div class="sp-step-title">Disassembly and Inspection</div>
+                    <p class="sp-step-text">Complete plate-by-plate inspection with photographic logging and measurement data.</p>
+                </div>
+                <div class="sp-process-step">
+                    <div class="sp-step-node">&#129529;</div>
+                    <div class="sp-step-num">STEP 03</div>
+                    <div class="sp-step-title">Cleaning and Restoration</div>
+                    <p class="sp-step-text">Chemical and mechanical cleaning, plate straightening, and component replacement.</p>
+                </div>
+                <div class="sp-process-step">
+                    <div class="sp-step-node">&#10003;</div>
+                    <div class="sp-step-num">STEP 04</div>
+                    <div class="sp-step-title">Reassembly and Testing</div>
+                    <p class="sp-step-text">Precision regasketing, torque-controlled assembly, and hydrostatic pressure test.</p>
+                </div>
+                <div class="sp-process-step">
+                    <div class="sp-step-node">&#128200;</div>
+                    <div class="sp-step-num">STEP 05</div>
+                    <div class="sp-step-title">Commissioning Report</div>
+                    <p class="sp-step-text">Detailed service certificate, test results, and performance optimisation recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background:var(--sp-dark)">
+        <svg viewBox="0 0 1440 50" preserveAspectRatio="none" style="fill:#051829;display:block;width:100%">
+            <path d="M0,0 Q720,50 1440,0 L1440,50 L0,50 Z"/>
+        </svg>
+    </div>
+
     <section class="sp-cta">
-      <div class="sp-cta-content">
-        <h2>Need Expert Heat Exchanger Service?</h2>
-        <p>Contact us today for a free consultation and transparent quote. We're ready to restore your heat exchanger to peak efficiency.</p>
-        <div class="sp-cta-btns">
-          <a href="contact.html" class="sp-btn-primary">Get Free Quote</a>
-          <a href="tel:+61XXXXXXXX" class="sp-btn-outline-light">Call Us Now</a>
+        <div class="sp-cta-inner sp-reveal">
+            <p class="sp-section-label" style="text-align:center">// Get Started</p>
+            <h2>Ready to Restore Your <span>PHE Performance?</span></h2>
+            <p>Contact Brigantine Engineering today to schedule a site visit, workshop service, or emergency callout. Our Australian team is ready to respond.</p>
+            <div class="sp-cta-actions">
+                <a href="contact.html" class="sp-btn-primary">Contact Our Team &rsaquo;</a>
+                <a href="services.html" class="sp-btn-outline">View All Services</a>
+            </div>
         </div>
-      </div>
     </section>
 
     <footer class="site-footer">
+        <div class="footer-products-row">
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> PLATE HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li>Industrial Line</li><li>Industrial Semi Welded Line</li><li>M Line</li><li>Wide Gap</li><li>Brazed PHE</li><li>Fusion Bonded PHE</li><li>Alfacond</li><li>Alfavap</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> WELDED HEAT EXCHANGERS <span class="bracket">]</span></h4>
+                <ul><li><a href="compabloc.html">Compabloc</a></li><li><a href="packinox.html">Packinox</a></li><li><a href="duroshell.html">Duroshell</a></li><li><a href="ziepack.html">Ziepack</a></li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK SEPARATORS <span class="bracket">]</span></h4>
+                <ul><li>MAB Separators</li><li>MMB</li><li>MOPX</li><li>Alfa 500</li></ul>
+            </div>
+            <div class="footer-products-col">
+                <h4><span class="bracket">[</span> DISK STACK MODELS <span class="bracket">]</span></h4>
+                <ul><li>Aldec</li><li>Lynx</li><li>P1</li><li>P2</li><li>P3</li></ul>
+            </div>
+        </div>
         <div class="footer-grid">
             <div class="footer-col">
                 <h4><span class="bracket">[</span> CONTACT US <span class="bracket">]</span></h4>
-                <p>contact@brigantine.com</p>
-                <p>+61 (0) 2 XXXX XXXX</p>
-                <p>Australia &amp; New Zealand</p>
+                <p>support@brigantine.com.au</p><p>+61 (0) 2 8000 0000</p><p>Matraville, NSW, Australia</p>
             </div>
             <div class="footer-col">
                 <h4><span class="bracket">[</span> QUICK LINKS <span class="bracket">]</span></h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
-                    <li><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
-                    <li><a href="services.html" style="color: inherit; text-decoration: none;">Services</a></li>
-                    <li><a href="contact.html" style="color: inherit; text-decoration: none;">Contact Us</a></li>
-                </ul>
+                <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="applications.html">Applications</a></li><li><a href="services.html">Service &amp; Support</a></li><li><a href="contact.html">Contact Us</a></li></ul>
             </div>
             <div class="footer-col">
                 <h4><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li><a href="electrical-troubleshooting-repair.html" style="color: inherit; text-decoration: none;">Electrical Troubleshooting</a></li>
-                    <li><a href="reconditioning-of-decanters.html" style="color: inherit; text-decoration: none;">Decanter Reconditioning</a></li>
-                    <li><a href="high-speed-separators.html" style="color: inherit; text-decoration: none;">High Speed Separators</a></li>
-                    <li><a href="gasketed-plate-heat-exchanger-services.html" style="color: inherit; text-decoration: none;">Heat Exchanger Services</a></li>
-                </ul>
+                <ul><li><a href="electrical-troubleshooting-repair.html">Electrical Troubleshooting</a></li><li><a href="reconditioning-of-decanters.html">Decanter Reconditioning</a></li><li><a href="high-speed-separators.html">High Speed Separators</a></li><li><a href="gasketed-plate-heat-exchanger-services.html">Heat Exchanger Services</a></li></ul>
             </div>
             <div class="footer-col">
                 <h4><span class="bracket">[</span> SOCIAL MEDIA <span class="bracket">]</span></h4>
@@ -211,23 +422,39 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="copyright">
-                &copy; 2026. Brigantine Engineering Services
-            </div>
+            <div class="copyright">&copy; 2026 Brigantine Engineering Services Australia</div>
         </div>
     </footer>
+
     <script src="script.js"></script>
-    <!-- WhatsApp Floating Button -->
-    <a
-      href="https://wa.me/8778589938"
-      class="whatsapp-float"
-      target="_blank"
-      title="Chat with us on WhatsApp"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        alt="WhatsApp Chat"
-      />
+    <a href="https://wa.me/8778589938" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
     </a>
+
+    <script>
+        const revealEls = document.querySelectorAll('.sp-reveal, .sp-reveal-left, .sp-reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        const heroBg = document.querySelector('.sp-hero-bg');
+        window.addEventListener('scroll', () => {
+            const s = window.scrollY;
+            if (heroBg && s < window.innerHeight) heroBg.style.transform = `scale(1.05) translateY(${s * 0.15}px)`;
+        }, { passive: true });
+
+        document.querySelectorAll('.sp-cap-item').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                card.style.transform = `translateY(-4px) scale(1.01) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        });
+    </script>
 </body>
 </html>
